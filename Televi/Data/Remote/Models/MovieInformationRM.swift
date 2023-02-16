@@ -1,13 +1,13 @@
 //
-//  movie_information.swift
+//  MovieInformationRM.swift
 //  Televi
 //
-//  Created by Daniel McCarthy on 10/02/23.
+//  Created by Daniel McCarthy on 16/02/23.
 //
 
 import Foundation
 
-struct MovieInformation {
+struct MovieInformationRM {
     let id: Int
     let title: String
     let image: String

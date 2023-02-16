@@ -16,6 +16,10 @@
 		F91130B2299493B900480E0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91130B0299493B900480E0F /* LaunchScreen.storyboard */; };
 		F91130BA299496CF00480E0F /* MovieInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91130B9299496CF00480E0F /* MovieInformationViewController.swift */; };
 		F96B89FF299E9A2E00951CEA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F96B89FE299E9A2E00951CEA /* Kingfisher */; };
+		F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A00299E9F4C00951CEA /* MovieRM.swift */; };
+		F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */; };
+		F96B8A08299EA0D400951CEA /* RemoteToDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */; };
+		F96B8A0F299EA18500951CEA /* TeleviRDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A0E299EA18500951CEA /* TeleviRDS.swift */; };
 		F9C15B722995E295003E4CD9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C15B712995E295003E4CD9 /* Movie.swift */; };
 		F9E4BC962996A4F4005C7B65 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4BC952996A4F4005C7B65 /* MovieCollectionViewCell.swift */; };
 		F9E4BC982996B8DD005C7B65 /* MovieInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4BC972996B8DD005C7B65 /* MovieInformation.swift */; };
@@ -35,6 +39,10 @@
 		F91130B1299493B900480E0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91130B3299493B900480E0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F91130B9299496CF00480E0F /* MovieInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationViewController.swift; sourceTree = "<group>"; };
+		F96B8A00299E9F4C00951CEA /* MovieRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRM.swift; sourceTree = "<group>"; };
+		F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationRM.swift; sourceTree = "<group>"; };
+		F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteToDomain.swift; sourceTree = "<group>"; };
+		F96B8A0E299EA18500951CEA /* TeleviRDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleviRDS.swift; sourceTree = "<group>"; };
 		F9C15B712995E295003E4CD9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		F9E4BC952996A4F4005C7B65 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9E4BC972996B8DD005C7B65 /* MovieInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformation.swift; sourceTree = "<group>"; };
@@ -92,6 +100,7 @@
 		F91130A4299493B600480E0F /* Televi */ = {
 			isa = PBXGroup;
 			children = (
+				F96B8A04299E9F9D00951CEA /* Data */,
 				F91130A7299493B600480E0F /* SceneDelegate.swift */,
 				F91130A5299493B600480E0F /* AppDelegate.swift */,
 				F9E5BC9B299C235900458379 /* Models */,
@@ -101,6 +110,41 @@
 				F9E5BCA1299C253900458379 /* Supporting Files */,
 			);
 			path = Televi;
+			sourceTree = "<group>";
+		};
+		F96B8A04299E9F9D00951CEA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F96B8A06299E9FC400951CEA /* Mapper */,
+				F96B8A05299E9FA300951CEA /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F96B8A05299E9FA300951CEA /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				F96B8A09299EA0E600951CEA /* Models */,
+				F96B8A0E299EA18500951CEA /* TeleviRDS.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		F96B8A06299E9FC400951CEA /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		F96B8A09299EA0E600951CEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F96B8A00299E9F4C00951CEA /* MovieRM.swift */,
+				F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F9E5BC9B299C235900458379 /* Models */ = {
@@ -279,11 +323,15 @@
 			files = (
 				F91130BA299496CF00480E0F /* MovieInformationViewController.swift in Sources */,
 				F91130AA299493B600480E0F /* MoviesViewController.swift in Sources */,
+				F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */,
 				F9C15B722995E295003E4CD9 /* Movie.swift in Sources */,
+				F96B8A0F299EA18500951CEA /* TeleviRDS.swift in Sources */,
 				F9FC4C3A2994A26800B9FF4E /* FavoriteMoviesViewController.swift in Sources */,
 				F9E4BC962996A4F4005C7B65 /* MovieCollectionViewCell.swift in Sources */,
 				F91130A6299493B600480E0F /* AppDelegate.swift in Sources */,
 				F91130A8299493B600480E0F /* SceneDelegate.swift in Sources */,
+				F96B8A08299EA0D400951CEA /* RemoteToDomain.swift in Sources */,
+				F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */,
 				F9E4BC982996B8DD005C7B65 /* MovieInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

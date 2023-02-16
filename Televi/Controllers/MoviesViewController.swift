@@ -9,6 +9,7 @@ import UIKit
 
 class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var movies: [Movie] = []
+    var moviesRM: [MovieRM] = []
     
     let movie = Movie(
         id: 1873842,
@@ -29,6 +30,7 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     )
     
     
+    let televiRDS = TeleviRDS();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,14 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         movies.append(movie2)
         movies.append(movie3)
+        televiRDS.getMovies { (movies, error) in
+            if let error = error {
+                throw error
+            } else {
+                self.moviesRM = movies ?? []
+            }
+        }
+        print(moviesRM)
     }
     
     
