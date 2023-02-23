@@ -15,6 +15,7 @@
 		F91130AF299493B900480E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91130AE299493B900480E0F /* Assets.xcassets */; };
 		F91130B2299493B900480E0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91130B0299493B900480E0F /* LaunchScreen.storyboard */; };
 		F91130BA299496CF00480E0F /* MovieInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91130B9299496CF00480E0F /* MovieInformationViewController.swift */; };
+		F93BC596299FF5160079735C /* TeleviRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BC595299FF5160079735C /* TeleviRepository.swift */; };
 		F96B89FF299E9A2E00951CEA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F96B89FE299E9A2E00951CEA /* Kingfisher */; };
 		F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A00299E9F4C00951CEA /* MovieRM.swift */; };
 		F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */; };
@@ -39,6 +40,7 @@
 		F91130B1299493B900480E0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91130B3299493B900480E0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F91130B9299496CF00480E0F /* MovieInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationViewController.swift; sourceTree = "<group>"; };
+		F93BC595299FF5160079735C /* TeleviRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleviRepository.swift; sourceTree = "<group>"; };
 		F96B8A00299E9F4C00951CEA /* MovieRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRM.swift; sourceTree = "<group>"; };
 		F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationRM.swift; sourceTree = "<group>"; };
 		F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteToDomain.swift; sourceTree = "<group>"; };
@@ -112,9 +114,18 @@
 			path = Televi;
 			sourceTree = "<group>";
 		};
+		F93BC594299FEA210079735C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F93BC595299FF5160079735C /* TeleviRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		F96B8A04299E9F9D00951CEA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F93BC594299FEA210079735C /* Repository */,
 				F96B8A06299E9FC400951CEA /* Mapper */,
 				F96B8A05299E9FA300951CEA /* Remote */,
 			);
@@ -322,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91130BA299496CF00480E0F /* MovieInformationViewController.swift in Sources */,
+				F93BC596299FF5160079735C /* TeleviRepository.swift in Sources */,
 				F91130AA299493B600480E0F /* MoviesViewController.swift in Sources */,
 				F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */,
 				F9C15B722995E295003E4CD9 /* Movie.swift in Sources */,

@@ -11,5 +11,5 @@ import UIKit
 struct Movie {
     let id : Int
     let name : String
-    let image : UIImage
+    let image : String
 }

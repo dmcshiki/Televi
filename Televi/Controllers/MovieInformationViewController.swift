@@ -6,67 +6,29 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieInformationViewController: UIViewController {
     var movieId: Int?
+    var televiRepository: TeleviRepository! = TeleviRepository(TeleviRDS: TeleviRDS())
+    var movie: MovieInformation? {
+        didSet {
+            guard let movie = movie else { return }
+            self.setupUI(movie: movie)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(movieId!)
-        enableIcons(movieInformation: movieInfo)
-        scoreLabel.text = String(movieInfo.score)
-        titleLabel.text = movieInfo.title
-        releaseDateLabel.text = movieInfo.release_date
-        genresLabel.text = movieInfo.genres.joined(separator: ", ")
-        makeOverviewText(overviewLabel: atribbutedOverviewLabel, movieInformation: movieInfo)
-    }
-    
-    
-    func makeOverviewText (overviewLabel: UILabel, movieInformation: MovieInformation){
-        let overviewTitleText = "Sinopse: "
-        let overviewTitleAtributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica Neue Bold", size: 18)]
-        let overviewLabelTitleText = NSMutableAttributedString(string: overviewTitleText, attributes: overviewTitleAtributes as [NSAttributedString.Key : Any])
-        
-        let overviewDescriptionAtributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica Neue", size: 18)]
-        let overviewLabelDescriptionText = NSAttributedString(string: movieInformation.overview, attributes: overviewDescriptionAtributes as [NSAttributedString.Key : Any])
-        
-        overviewLabelTitleText.append(overviewLabelDescriptionText)
-        
-        overviewLabel.attributedText = overviewLabelTitleText
-    }
-
-    let movieInfo = MovieInformation(
-        id: 1,
-        title: "FIlmasso",
-        image: "https://image.tmdb.org/t/p/w200/fycMZt242LVjagMByZOLUGbCvv3.png",
-        isADultContent: true,
-        genres: ["Comedia", "Acao", "Drama"],
-        overview: "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.",
-        release_date: "1974-12-20",
-        score: 8
-    )
-    
-    func enableIcons(movieInformation: MovieInformation) {
-        plusEighteenIcon.isHidden = !movieInformation.isADultContent
-        
-        if(movieInformation.score < 10) {
-            fifthStarIcon.isHidden = true
-        }
-        if(movieInformation.score < 8) {
-            fourthStarIcon.isHidden = true
-        }
-        if(movieInformation.score < 6) {
-            thirdStarIcon.isHidden = true
-        }
-        if(movieInformation.score < 4) {
-            secondStarIcon.isHidden = true
-        }
-        if(movieInformation.score < 2) {
-            firstStarIcon.isHidden = true
+        televiRepository.getMovieInformation(movieId: movieId!) { [weak self] (result) in
+            switch (result) {
+            case .failure(let error):
+                print(error)
+            case .success(let movie):
+                self?.movie = movie
+            }
         }
     }
-    
-
     
     @IBOutlet weak var atribbutedOverviewLabel: UILabel!
     
@@ -85,4 +47,60 @@ class MovieInformationViewController: UIViewController {
     @IBOutlet weak var genresLabel: UILabel!
 }
 
+extension MovieInformationViewController {
+    
+    private func setupUI(movie: MovieInformation) {
+        showImage(movieInformation: movie)
+        enableIcons(movieInformation: movie)
+        scoreLabel.text = String(movie.score)
+        titleLabel.text = movie.name
+        releaseDateLabel.text = movie.release_date
+        genresLabel.text = movie.genres.joined(separator: ", ")
+        makeOverviewText(overviewLabel: atribbutedOverviewLabel, movieInformation: movie)
+    }
+    
+    private func showImage(movieInformation: MovieInformation) {
+        let placeholder = UIImage(named: "movieCatch")
+        
+        guard let url = URL(string: self.movie!.imageURL) else {
+            movieImageLabel.image = placeholder
+            return
+        }
+        
+        movieImageLabel.kf.setImage(with: url, placeholder: placeholder)
+    }
+    
+    private func enableIcons(movieInformation: MovieInformation) {
+        plusEighteenIcon.isHidden = !movieInformation.isAdultContent
+        
+        if(movieInformation.score < 10) {
+            fifthStarIcon.isHidden = true
+        }
+        if(movieInformation.score < 8) {
+            fourthStarIcon.isHidden = true
+        }
+        if(movieInformation.score < 6) {
+            thirdStarIcon.isHidden = true
+        }
+        if(movieInformation.score < 4) {
+            secondStarIcon.isHidden = true
+        }
+        if(movieInformation.score < 2) {
+            firstStarIcon.isHidden = true
+        }
+    }
+    
+    private func makeOverviewText (overviewLabel: UILabel, movieInformation: MovieInformation){
+        let overviewTitleText = "Sinopse: "
+        let overviewTitleAtributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica Neue Bold", size: 18)]
+        let overviewLabelTitleText = NSMutableAttributedString(string: overviewTitleText, attributes: overviewTitleAtributes as [NSAttributedString.Key : Any])
+        
+        let overviewDescriptionAtributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica Neue", size: 18)]
+        let overviewLabelDescriptionText = NSAttributedString(string: movieInformation.overview, attributes: overviewDescriptionAtributes as [NSAttributedString.Key : Any])
+        
+        overviewLabelTitleText.append(overviewLabelDescriptionText)
+        
+        overviewLabel.attributedText = overviewLabelTitleText
+    }
+}
 

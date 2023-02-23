@@ -59,5 +59,21 @@ class TeleviRDS {
             }
         }
     }
+    
+    func getMovieInformation(movieId: Int, completion: @escaping (MovieInformationRM?, Error?) -> Void) {
+        provider.request(TeleviAPI.readMovieInformation(id: movieId)) { (result) in
+            switch result {
+                case .success(let response):
+                guard let movieInformationResponse = try? JSONDecoder().decode(MovieInformationRM.self, from: response.data)
+                    else {
+                        completion(nil, NSError(domain: "TeleviRDS", code: 0, userInfo: [NSLocalizedDescriptionKey: "Error decoding movies response"]))
+                        return
+                    }
+                    completion(movieInformationResponse, nil)
+                case .failure(let error):
+                    completion(nil, error)
+            }
+        }
+    }
 }
     
