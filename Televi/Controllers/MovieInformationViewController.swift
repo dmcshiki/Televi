@@ -8,27 +8,42 @@
 import UIKit
 import Kingfisher
 
+protocol MovieInformationViewProtocol: AnyObject {
+    func displayMovieInformation(movieInformation: MovieInformation)
+}
+
 class MovieInformationViewController: UIViewController {
     var movieId: Int?
-    var televiRepository: TeleviRepository! = TeleviRepository(TeleviRDS: TeleviRDS())
-    var movie: MovieInformation? {
+    private var movieInformationPresenter: MovieInformationPresenter!
+    private let loadingView = LoadingView()
+    private var movieInformation: MovieInformation? {
         didSet {
-            guard let movie = movie else { return }
-            self.setupUI(movie: movie)
+            guard let movieInformation = movieInformation else { return }
+            self.setupUI(movieInformation: movieInformation)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        televiRepository.getMovieInformation(movieId: movieId!) { [weak self] (result) in
-            switch (result) {
-            case .failure(let error):
-                print(error)
-            case .success(let movie):
-                self?.movie = movie
-            }
-        }
+        movieInformationPresenter = MovieInformationPresenter(view: self)
+        
+        view.addSubview(loadingView)
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        loadingView.isHidden = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        movieInformationPresenter.fetchMovieInformation(movieId: self.movieId!)
+    }
+    
     
     @IBOutlet weak var atribbutedOverviewLabel: UILabel!
     
@@ -49,20 +64,20 @@ class MovieInformationViewController: UIViewController {
 
 extension MovieInformationViewController {
     
-    private func setupUI(movie: MovieInformation) {
-        showImage(movieInformation: movie)
-        enableIcons(movieInformation: movie)
-        scoreLabel.text = String(movie.score)
-        titleLabel.text = movie.name
-        releaseDateLabel.text = movie.release_date
-        genresLabel.text = movie.genres.joined(separator: ", ")
-        makeOverviewText(overviewLabel: atribbutedOverviewLabel, movieInformation: movie)
+    private func setupUI(movieInformation: MovieInformation) {
+        showImage(movieInformation: movieInformation)
+        enableIcons(movieInformation: movieInformation)
+        scoreLabel.text = String(movieInformation.score)
+        titleLabel.text = movieInformation.name
+        releaseDateLabel.text = movieInformation.release_date
+        genresLabel.text = movieInformation.genres.joined(separator: ", ")
+        makeOverviewText(overviewLabel: atribbutedOverviewLabel, movieInformation: movieInformation)
     }
     
     private func showImage(movieInformation: MovieInformation) {
         let placeholder = UIImage(named: "movieCatch")
         
-        guard let url = URL(string: self.movie!.imageURL) else {
+        guard let url = URL(string: self.movieInformation!.imageURL) else {
             movieImageLabel.image = placeholder
             return
         }
@@ -104,3 +119,9 @@ extension MovieInformationViewController {
     }
 }
 
+extension MovieInformationViewController: MovieInformationViewProtocol {
+    func displayMovieInformation(movieInformation: MovieInformation) {
+        self.movieInformation = movieInformation
+        loadingView.isHidden = true
+    }
+}
