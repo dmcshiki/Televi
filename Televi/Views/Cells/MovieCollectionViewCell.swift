@@ -6,14 +6,24 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieNameLabel: UILabel!
     
-    func configure(with movieName: String, and movieImage: UIImage) {
-        movieNameLabel.text = movieName
-        movieImageView.image = movieImage
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func configure(with movie: Movie) {
+        movieNameLabel.text = movie.name
+        let placeholder = UIImage(named: "movieCatch")
+        guard let url = URL(string: movie.image) else {
+            movieImageView.image = placeholder
+            return
+        }
+        movieImageView.kf.setImage(with: url, placeholder: placeholder)
     }
 }

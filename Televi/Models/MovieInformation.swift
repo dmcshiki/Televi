@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct MovieInformation{
+struct MovieInformation {
     let id: Int
-    let title: String
-    let image: String
-    let isADultContent: Bool
+    let name: String
+    let imageURL: String
+    let isAdultContent: Bool
     let genres: [String]
     let overview: String
     let release_date: String

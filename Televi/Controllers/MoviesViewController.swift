@@ -7,43 +7,33 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MoviesViewController: UIViewController {
     var movies: [Movie] = []
+    var televiRepository: TeleviRepository! = TeleviRepository(TeleviRDS: TeleviRDS())
     
-    let movie = Movie(
-        id: 1873842,
-        name: "Filme foda",
-        image: UIImage(named: "movieCatch")!
-    )
-    
-    let movie2 = Movie(
-        id: 7832134,
-        name: "cafe com leite",
-        image: UIImage(named: "movieCatch")!
-    )
-    
-    let movie3 = Movie(
-        id: 9348567,
-        name: "Filme bao",
-        image: UIImage(named: "movieCatch")!
-    )
-    
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for _ in 0 ... 6 {
-            movies.append(movie)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
+        televiRepository.getMovies { [weak self] (result) in
+            switch result {
+            case .success(let movies):
+                self?.movies = movies
+                self?.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
         }
-        movies.append(movie2)
-        movies.append(movie3)
     }
-    
-    
+}
+
+extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! MovieInformationViewController
-        destVC.movieId = sender as? Int
+        destVC.movieId = sender as? Int ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,14 +41,12 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
         
-        if let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as? MovieCollectionViewCell {
-            
-            movieCell.configure(with: movies[indexPath.row].name, and: movies[indexPath.row].image)
-            
-            cell = movieCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as? MovieCollectionViewCell else {
+            return UICollectionViewCell()
         }
+        
+        cell.configure(with: movies[indexPath.row])
         
         return cell
     }
@@ -68,4 +56,3 @@ class MoviesViewController: UIViewController, UICollectionViewDataSource, UIColl
         performSegue(withIdentifier: "toMovieInformationVC", sender: id)
     }
 }
-
