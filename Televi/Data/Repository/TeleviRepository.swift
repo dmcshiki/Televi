@@ -8,10 +8,10 @@
 import Foundation
 
 struct TeleviRepository {
-    let TeleviRDS: TeleviRDS
+    let televiRDS: TeleviRDS
     
     func getMovies(completion: @escaping ((Result<[Movie], Error>)) -> Void) {
-        TeleviRDS.getMovies(
+        televiRDS.getMovies(
             completion: { (moviesResponse, error) in
                 if let error = error {
                     completion((.failure(error)))
@@ -31,7 +31,7 @@ struct TeleviRepository {
     }
     
     func getMovieInformation(movieId: Int, completion: @escaping ((Result<MovieInformation, Error>)) -> Void) {
-        TeleviRDS.getMovieInformation(movieId: movieId,
+        televiRDS.getMovieInformation(movieId: movieId,
             completion: { (movieInformationResponse, error) in
                 if let error = error {
                     completion(.failure(error))
