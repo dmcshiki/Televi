@@ -17,6 +17,9 @@
 		F91130BA299496CF00480E0F /* MovieInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91130B9299496CF00480E0F /* MovieInformationViewController.swift */; };
 		F920BD5129AE5B620083764C /* MovieInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5029AE5B620083764C /* MovieInformationView.swift */; };
 		F920BD5529AE5D2A0083764C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5429AE5D2A0083764C /* LoadingView.swift */; };
+		F920BD5829AFCE1E0083764C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5729AFCE1E0083764C /* Coordinator.swift */; };
+		F920BD5A29AFCED50083764C /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5929AFCED50083764C /* Storyboarded.swift */; };
+		F920BD5C29AFD3390083764C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5B29AFD3390083764C /* MainCoordinator.swift */; };
 		F936441029ABA28A0062C374 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936440F29ABA28A0062C374 /* MoviesPresenter.swift */; };
 		F936441229ABA29B0062C374 /* MovieInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */; };
 		F93BC596299FF5160079735C /* TeleviRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BC595299FF5160079735C /* TeleviRepository.swift */; };
@@ -46,6 +49,9 @@
 		F91130B9299496CF00480E0F /* MovieInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationViewController.swift; sourceTree = "<group>"; };
 		F920BD5029AE5B620083764C /* MovieInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInformationView.swift; sourceTree = "<group>"; };
 		F920BD5429AE5D2A0083764C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		F920BD5729AFCE1E0083764C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F920BD5929AFCED50083764C /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		F920BD5B29AFD3390083764C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F936440F29ABA28A0062C374 /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
 		F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationPresenter.swift; sourceTree = "<group>"; };
 		F93BC595299FF5160079735C /* TeleviRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleviRepository.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 		F920BD5229AE5D0F0083764C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F920BD5629AFCC1A0083764C /* Coordinators */,
 				F920BD5329AE5D190083764C /* Components */,
 			);
 			path = Common;
@@ -138,6 +145,16 @@
 				F920BD5429AE5D2A0083764C /* LoadingView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F920BD5629AFCC1A0083764C /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				F920BD5729AFCE1E0083764C /* Coordinator.swift */,
+				F920BD5929AFCED50083764C /* Storyboarded.swift */,
+				F920BD5B29AFD3390083764C /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		F936440D29ABA2400062C374 /* Presenters */ = {
@@ -376,14 +393,17 @@
 				F9C15B722995E295003E4CD9 /* Movie.swift in Sources */,
 				F920BD5129AE5B620083764C /* MovieInformationView.swift in Sources */,
 				F96B8A0F299EA18500951CEA /* TeleviRDS.swift in Sources */,
+				F920BD5829AFCE1E0083764C /* Coordinator.swift in Sources */,
 				F9FC4C3A2994A26800B9FF4E /* FavoriteMoviesViewController.swift in Sources */,
 				F936441029ABA28A0062C374 /* MoviesPresenter.swift in Sources */,
 				F9E4BC962996A4F4005C7B65 /* MovieCollectionViewCell.swift in Sources */,
 				F91130A6299493B600480E0F /* AppDelegate.swift in Sources */,
+				F920BD5C29AFD3390083764C /* MainCoordinator.swift in Sources */,
 				F91130A8299493B600480E0F /* SceneDelegate.swift in Sources */,
 				F96B8A08299EA0D400951CEA /* RemoteToDomain.swift in Sources */,
 				F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */,
 				F9E4BC982996B8DD005C7B65 /* MovieInformation.swift in Sources */,
+				F920BD5A29AFCED50083764C /* Storyboarded.swift in Sources */,
 				F920BD5529AE5D2A0083764C /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +537,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -537,7 +558,6 @@
 				INFOPLIST_FILE = "Televi/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -546,6 +566,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-McCarthy.Televi";
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -566,7 +587,6 @@
 				INFOPLIST_FILE = "Televi/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

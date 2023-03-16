@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P6D-AU-HEB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -12,13 +12,13 @@
         <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Movies" id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesViewController" title="Movies" id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-GF-VY0">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" sectionInsetReference="safeArea" id="3mG-zg-eRG">
                                     <size key="itemSize" width="180" height="160"/>
@@ -89,45 +89,26 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J5D-GF-VY0" secondAttribute="trailing" id="g0N-h8-YCC"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="gAt-iB-qwp"/>
                     <navigationItem key="navigationItem" title="Movies" id="FTe-lH-KK2"/>
                     <connections>
                         <outlet property="collectionView" destination="J5D-GF-VY0" id="9or-FA-plK"/>
-                        <segue destination="Zmp-47-6cV" kind="show" identifier="toMovieInformationVC" id="e1d-4S-xHS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1915.2671755725189" y="4.9295774647887329"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="BJz-b6-mzS">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="P6D-AU-HEB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CST-JJ-3Ov">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="r9B-gS-y4C" kind="relationship" relationship="viewControllers" id="jzE-wa-Oz3"/>
-                        <segue destination="WQO-j1-5Ku" kind="relationship" relationship="viewControllers" id="8Nz-W3-YC9"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UTc-in-19s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="61.832061068702288" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="772" y="5"/>
         </scene>
         <!--Movie Information-->
         <scene sceneID="Utr-ob-Zw8">
             <objects>
-                <viewController storyboardIdentifier="MovieInformationVIewController" id="Zmp-47-6cV" customClass="MovieInformationViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieInformationViewController" id="Zmp-47-6cV" customClass="MovieInformationViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n22-9x-Ndc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movieCatch" translatesAutoresizingMaskIntoConstraints="NO" id="1eN-Wn-j64">
-                                <rect key="frame" x="86" y="115" width="221" height="124"/>
+                                <rect key="frame" x="86" y="71" width="221" height="217"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="12"/>
@@ -136,19 +117,19 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttN-nT-DKb">
-                                <rect key="frame" x="40" y="295" width="313" height="28.666666666666686"/>
+                                <rect key="frame" x="40" y="344" width="313" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blk-rv-e4W">
-                                <rect key="frame" x="16" y="405.33333333333326" width="77.666666666666671" height="21.666666666666686"/>
+                                <rect key="frame" x="16" y="454.33333333333331" width="77.666666666666671" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsM-5G-v50">
-                                <rect key="frame" x="16" y="451" width="361" height="21.666666666666686"/>
+                                <rect key="frame" x="16" y="500" width="361" height="21.666666666666629"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Sinopse:">
                                         <attributes>
@@ -160,28 +141,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReleaseDateLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="One-eC-wD4">
-                                <rect key="frame" x="201.66666666666663" y="359.66666666666674" width="144.33333333333337" height="21.666666666666686"/>
+                                <rect key="frame" x="201.66666666666663" y="408.66666666666669" width="144.33333333333337" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GenresLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1d-Db-up2">
-                                <rect key="frame" x="101.66666666666669" y="405.33333333333326" width="101.33333333333331" height="21.666666666666686"/>
+                                <rect key="frame" x="101.66666666666669" y="454.33333333333331" width="101.33333333333331" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusEighteen" translatesAutoresizingMaskIntoConstraints="NO" id="e0C-DL-9gZ">
-                                <rect key="frame" x="16" y="119" width="54" height="90"/>
+                                <rect key="frame" x="16" y="75" width="54" height="183"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de lançamento:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAm-Cs-f1X">
-                                <rect key="frame" x="16" y="359.66666666666674" width="177.66666666666666" height="21.666666666666686"/>
+                                <rect key="frame" x="16" y="408.66666666666669" width="177.66666666666666" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TF9-X5-cEB">
-                                <rect key="frame" x="86.000000000000014" y="247" width="220.33333333333337" height="24"/>
+                                <rect key="frame" x="86.000000000000014" y="296" width="220.33333333333337" height="24"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NKK-yb-ZcD">
                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="22" height="23.666666666666664"/>
@@ -266,26 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hp5-cu-Nxq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2797.709923664122" y="4.9295774647887329"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sB8-Pi-irY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r9B-gS-y4C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="xa8-K2-Mfe" userLabel="Movies"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eUq-WK-jpx">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FDS-kL-TEh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oEG-0s-Bef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1030" y="5"/>
+            <point key="canvasLocation" x="1654" y="5"/>
         </scene>
         <!--Favorite Movies View Controller-->
         <scene sceneID="BEy-wT-HUS">
@@ -301,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVa-Bg-tzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="989" y="740"/>
+            <point key="canvasLocation" x="-208" y="5"/>
         </scene>
     </scenes>
     <resources>
