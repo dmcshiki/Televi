@@ -11,10 +11,11 @@ protocol MoviesViewProtocol: AnyObject {
     func displayMovies(movies: [Movie])
 }
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: UIViewController, Storyboarded {
     private var movies: [Movie] = []
     private var moviesPresenter: MoviesPresenter!
     private let loadingView = LoadingView()
+    var coordinator: MainCoordinator?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -44,11 +45,6 @@ class MoviesViewController: UIViewController {
 }
 
 extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destVC = segue.destination as! MovieInformationViewController
-        destVC.movieId = sender as? Int
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
@@ -66,8 +62,9 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id = movies[indexPath.row].id
-        performSegue(withIdentifier: "toMovieInformationVC", sender: id)
-    }
+        coordinator?.navigatoToMovieInformation(movieId: id)
+    
+    }   
 }
 
 extension MoviesViewController: MoviesViewProtocol {

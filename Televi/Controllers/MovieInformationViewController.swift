@@ -8,14 +8,16 @@
 import UIKit
 import Kingfisher
 
-protocol MovieInformationViewProtocol: AnyObject {
+protocol MovieInformationViewProtocol: AnyObject, Storyboarded {
     func displayMovieInformation(movieInformation: MovieInformation)
 }
 
-class MovieInformationViewController: UIViewController {
+class MovieInformationViewController: UIViewController, Storyboarded {
     var movieId: Int?
     private var movieInformationPresenter: MovieInformationPresenter!
     private let loadingView = LoadingView()
+    var coordinator: MainCoordinator?
+    
     private var movieInformation: MovieInformation? {
         didSet {
             guard let movieInformation = movieInformation else { return }
