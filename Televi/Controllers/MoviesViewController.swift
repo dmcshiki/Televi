@@ -50,6 +50,7 @@ class MoviesViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        errorView.isHidden = true
         moviesPresenter.fetchMovies()
     }
 }
@@ -89,6 +90,7 @@ extension MoviesViewController: MoviesViewProtocol {
             loadingView.isHidden = false
         case .error:
             self.errorView.isHidden = false
+            loadingView.isHidden = true
         }
     }
 }

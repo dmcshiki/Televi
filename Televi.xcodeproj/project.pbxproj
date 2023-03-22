@@ -23,14 +23,10 @@
 		F936441029ABA28A0062C374 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936440F29ABA28A0062C374 /* MoviesPresenter.swift */; };
 		F936441229ABA29B0062C374 /* MovieInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */; };
 		F93BC596299FF5160079735C /* TeleviRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BC595299FF5160079735C /* TeleviRepository.swift */; };
-		F96B89FF299E9A2E00951CEA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F96B89FE299E9A2E00951CEA /* Kingfisher */; };
 		F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A00299E9F4C00951CEA /* MovieRM.swift */; };
 		F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */; };
 		F96B8A08299EA0D400951CEA /* RemoteToDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */; };
 		F96B8A0F299EA18500951CEA /* TeleviRDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A0E299EA18500951CEA /* TeleviRDS.swift */; };
-		F9902F5629CB848A009F3FF9 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F9902F5529CB848A009F3FF9 /* RxCocoa-Dynamic */; };
-		F9902F5829CB848A009F3FF9 /* RxRelay-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F9902F5729CB848A009F3FF9 /* RxRelay-Dynamic */; };
-		F9902F5A29CB848B009F3FF9 /* RxSwift-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = F9902F5929CB848B009F3FF9 /* RxSwift-Dynamic */; };
 		F9C15B722995E295003E4CD9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C15B712995E295003E4CD9 /* Movie.swift */; };
 		F9E4BC962996A4F4005C7B65 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4BC952996A4F4005C7B65 /* MovieCollectionViewCell.swift */; };
 		F9E4BC982996B8DD005C7B65 /* MovieInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4BC972996B8DD005C7B65 /* MovieInformation.swift */; };
@@ -87,10 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9902F5829CB848A009F3FF9 /* RxRelay-Dynamic in Frameworks */,
-				F9902F5A29CB848B009F3FF9 /* RxSwift-Dynamic in Frameworks */,
-				F96B89FF299E9A2E00951CEA /* Kingfisher in Frameworks */,
-				F9902F5629CB848A009F3FF9 /* RxCocoa-Dynamic in Frameworks */,
 				8299AF6155ECFB3E2D59AD92 /* Pods_Televi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,10 +297,6 @@
 			);
 			name = Televi;
 			packageProductDependencies = (
-				F96B89FE299E9A2E00951CEA /* Kingfisher */,
-				F9902F5529CB848A009F3FF9 /* RxCocoa-Dynamic */,
-				F9902F5729CB848A009F3FF9 /* RxRelay-Dynamic */,
-				F9902F5929CB848B009F3FF9 /* RxSwift-Dynamic */,
 			);
 			productName = Televi;
 			productReference = F91130A2299493B600480E0F /* Televi.app */;
@@ -339,8 +327,6 @@
 			);
 			mainGroup = F9113099299493B600480E0F;
 			packageReferences = (
-				F96B89FD299E9A2E00951CEA /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				F9902F5429CB848A009F3FF9 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = F91130A3299493B600480E0F /* Products */;
 			projectDirPath = "";
@@ -651,48 +637,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F96B89FD299E9A2E00951CEA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher/";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		F9902F5429CB848A009F3FF9 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F96B89FE299E9A2E00951CEA /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96B89FD299E9A2E00951CEA /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		F9902F5529CB848A009F3FF9 /* RxCocoa-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9902F5429CB848A009F3FF9 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxCocoa-Dynamic";
-		};
-		F9902F5729CB848A009F3FF9 /* RxRelay-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9902F5429CB848A009F3FF9 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxRelay-Dynamic";
-		};
-		F9902F5929CB848B009F3FF9 /* RxSwift-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F9902F5429CB848A009F3FF9 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = "RxSwift-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F911309A299493B600480E0F /* Project object */;
 }

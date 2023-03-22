@@ -80,26 +80,26 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" id="6ZR-j4-nMU" userLabel="Error">
-                                <rect key="frame" x="-2" y="-1" width="394" height="852"/>
+                                <rect key="frame" x="-3" y="-2" width="393" height="851"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericException" translatesAutoresizingMaskIntoConstraints="NO" id="7wF-Yi-g5v">
-                                        <rect key="frame" x="16" y="48" width="362" height="241"/>
+                                        <rect key="frame" x="16" y="48" width="361" height="242"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="12"/>
+                                                <integer key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontramos um erro ao tentar carregar a pagina, por favor, tente novamente." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vd3-Br-uYS">
-                                        <rect key="frame" x="16" y="319" width="362" height="130"/>
+                                        <rect key="frame" x="16" y="320" width="361" height="130"/>
                                         <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-GV-hbD">
-                                        <rect key="frame" x="16" y="509" width="362" height="34"/>
+                                        <rect key="frame" x="16" y="510" width="361" height="34"/>
                                         <color key="tintColor" red="0.87058823529411766" green="0.51747204306428018" blue="0.81916940086646695" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Tentar Novamente" titleAlignment="center">

@@ -16,7 +16,7 @@ struct MoviesPresenter: MoviesPresenterProtocol {
     init(view: MoviesViewProtocol) {
         self.view = view
     }
-    
+
     var televiRepository = TeleviRepository(televiRDS: TeleviRDS())
     weak var view: MoviesViewProtocol?
     let disposeBag = DisposeBag()
