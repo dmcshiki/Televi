@@ -20,13 +20,6 @@ struct MovieInformationPresenter: MovieInformationPresenterProtocol {
     weak var view: MovieInformationViewProtocol?
 
     func fetchMovieInformation(movieId: Int) {
-        televiRepository.getMovieInformation(movieId: movieId) { (result) in
-            switch result {
-            case .success(let movieInformationResponse):
-                self.view?.displayMovieInformation(movieInformation: movieInformationResponse)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        
     }
 }

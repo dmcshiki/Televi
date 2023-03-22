@@ -7,8 +7,14 @@
 
 import UIKit
 
+enum MovieViewState {
+    case success([Movie])
+    case error
+    case loading
+}
+
 protocol MoviesViewProtocol: AnyObject {
-    func displayMovies(movies: [Movie])
+    func updateScreen(from state: MovieViewState)
 }
 
 class MoviesViewController: UIViewController, Storyboarded {
@@ -18,6 +24,10 @@ class MoviesViewController: UIViewController, Storyboarded {
     var coordinator: MainCoordinator?
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var tryAgain: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,9 +78,18 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
 }
 
 extension MoviesViewController: MoviesViewProtocol {
-    func displayMovies(movies: [Movie]) {
-        self.movies = movies
-        self.collectionView.reloadData()
-        loadingView.isHidden = true
+    func updateScreen(from state: MovieViewState) {
+        switch state {
+        case let .success(movies):
+            self.movies = movies
+            self.collectionView.reloadData()
+            self.errorView.isHidden = true
+            loadingView.isHidden = true
+        case .loading:
+            loadingView.isHidden = false
+        case .error:
+            self.errorView.isHidden = false
+        }
     }
 }
+

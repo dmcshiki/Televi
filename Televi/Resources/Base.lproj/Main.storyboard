@@ -79,6 +79,51 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" id="6ZR-j4-nMU" userLabel="Error">
+                                <rect key="frame" x="-2" y="-1" width="394" height="852"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericException" translatesAutoresizingMaskIntoConstraints="NO" id="7wF-Yi-g5v">
+                                        <rect key="frame" x="16" y="48" width="362" height="241"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontramos um erro ao tentar carregar a pagina, por favor, tente novamente." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vd3-Br-uYS">
+                                        <rect key="frame" x="16" y="319" width="362" height="130"/>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-GV-hbD">
+                                        <rect key="frame" x="16" y="509" width="362" height="34"/>
+                                        <color key="tintColor" red="0.87058823529411766" green="0.51747204306428018" blue="0.81916940086646695" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Tentar Novamente" titleAlignment="center">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="W5F-fG-noY"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="gI1-GV-hbD" firstAttribute="top" secondItem="Vd3-Br-uYS" secondAttribute="bottom" constant="60" id="43F-iB-tHp"/>
+                                    <constraint firstItem="W5F-fG-noY" firstAttribute="trailing" secondItem="gI1-GV-hbD" secondAttribute="trailing" constant="16" id="7Ci-Bf-C7r"/>
+                                    <constraint firstItem="7wF-Yi-g5v" firstAttribute="leading" secondItem="W5F-fG-noY" secondAttribute="leading" constant="16" id="JZR-fp-1sc"/>
+                                    <constraint firstItem="W5F-fG-noY" firstAttribute="bottom" secondItem="7wF-Yi-g5v" secondAttribute="bottom" constant="530" id="LvG-74-fEL"/>
+                                    <constraint firstItem="W5F-fG-noY" firstAttribute="trailing" secondItem="7wF-Yi-g5v" secondAttribute="trailing" constant="16" id="X11-yB-O07"/>
+                                    <constraint firstItem="Vd3-Br-uYS" firstAttribute="leading" secondItem="W5F-fG-noY" secondAttribute="leading" constant="16" id="cEW-h1-oLY"/>
+                                    <constraint firstItem="7wF-Yi-g5v" firstAttribute="top" secondItem="6ZR-j4-nMU" secondAttribute="top" constant="48" id="d9Z-dK-6xe"/>
+                                    <constraint firstItem="W5F-fG-noY" firstAttribute="bottom" secondItem="Vd3-Br-uYS" secondAttribute="bottom" constant="370" id="f2i-Pp-cBL"/>
+                                    <constraint firstItem="W5F-fG-noY" firstAttribute="trailing" secondItem="Vd3-Br-uYS" secondAttribute="trailing" constant="16" id="k6c-Cp-w1i"/>
+                                    <constraint firstItem="W5F-fG-noY" firstAttribute="bottom" secondItem="gI1-GV-hbD" secondAttribute="bottom" constant="276" id="lbd-Ju-avn"/>
+                                    <constraint firstItem="Vd3-Br-uYS" firstAttribute="top" secondItem="7wF-Yi-g5v" secondAttribute="bottom" constant="30" id="uSb-37-yOn"/>
+                                    <constraint firstItem="gI1-GV-hbD" firstAttribute="leading" secondItem="W5F-fG-noY" secondAttribute="leading" constant="16" id="wbV-nh-iAv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,11 +138,13 @@
                     <navigationItem key="navigationItem" title="Movies" id="FTe-lH-KK2"/>
                     <connections>
                         <outlet property="collectionView" destination="J5D-GF-VY0" id="9or-FA-plK"/>
+                        <outlet property="errorView" destination="6ZR-j4-nMU" id="6KY-O0-HEN"/>
+                        <outlet property="tryAgain" destination="gI1-GV-hbD" id="g1j-ER-jsg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="5"/>
+            <point key="canvasLocation" x="771.75572519083971" y="4.9295774647887329"/>
         </scene>
         <!--Movie Information-->
         <scene sceneID="Utr-ob-Zw8">
@@ -268,6 +315,7 @@
     </scenes>
     <resources>
         <image name="dancing-banana.gif" width="365" height="360"/>
+        <image name="genericException" width="637" height="358"/>
         <image name="movieCatch" width="736" height="736"/>
         <image name="plusEighteen" width="512" height="512"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

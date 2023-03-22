@@ -5,8 +5,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher/",
       "state" : {
-        "revision" : "415b1d97fb38bda1e5a6b2dde63354720832110b",
-        "version" : "7.6.1"
+        "revision" : "af4be924ad984cf4d16f4ae4df424e79a443d435",
+        "version" : "7.6.2"
+      }
+    },
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "04c8d2b491b54e46a3534254bed8807b4a954fad"
       }
     }
   ],
