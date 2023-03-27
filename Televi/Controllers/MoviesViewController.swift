@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 enum MovieViewState {
     case success([Movie])
@@ -22,6 +23,7 @@ class MoviesViewController: UIViewController, Storyboarded {
     private var moviesPresenter: MoviesPresenter!
     private let loadingView = LoadingView()
     var coordinator: MainCoordinator?
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -45,7 +47,11 @@ class MoviesViewController: UIViewController, Storyboarded {
             loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        loadingView.isHidden = false
+        tryAgain.rx.tap
+            .subscribe(onNext: {
+                self.moviesPresenter.fetchMovies()
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,13 +90,13 @@ extension MoviesViewController: MoviesViewProtocol {
         case let .success(movies):
             self.movies = movies
             self.collectionView.reloadData()
-            self.errorView.isHidden = true
             loadingView.isHidden = true
+            errorView.isHidden = true
         case .loading:
             loadingView.isHidden = false
         case .error:
-            self.errorView.isHidden = false
             loadingView.isHidden = true
+            errorView.isHidden = false
         }
     }
 }

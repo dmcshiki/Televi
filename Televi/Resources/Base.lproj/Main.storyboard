@@ -80,11 +80,11 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" id="6ZR-j4-nMU" userLabel="Error">
-                                <rect key="frame" x="-3" y="-2" width="393" height="851"/>
+                                <rect key="frame" x="-5" y="-5" width="395" height="852"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericException" translatesAutoresizingMaskIntoConstraints="NO" id="7wF-Yi-g5v">
-                                        <rect key="frame" x="16" y="48" width="361" height="242"/>
+                                        <rect key="frame" x="16" y="48" width="363" height="245"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="24"/>
@@ -93,13 +93,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontramos um erro ao tentar carregar a pagina, por favor, tente novamente." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vd3-Br-uYS">
-                                        <rect key="frame" x="16" y="320" width="361" height="130"/>
+                                        <rect key="frame" x="16" y="323" width="363" height="130"/>
                                         <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-GV-hbD">
-                                        <rect key="frame" x="16" y="510" width="361" height="34"/>
+                                        <rect key="frame" x="16" y="513" width="363" height="34"/>
                                         <color key="tintColor" red="0.87058823529411766" green="0.51747204306428018" blue="0.81916940086646695" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Tentar Novamente" titleAlignment="center">
@@ -243,6 +243,52 @@
                                     <constraint firstAttribute="height" constant="24" id="VYM-eb-ti7"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" id="ov0-Qe-tsU" userLabel="Error">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="851"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericException" translatesAutoresizingMaskIntoConstraints="NO" id="TWH-MT-UOs">
+                                        <rect key="frame" x="16" y="48" width="361" height="240"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontramos um erro ao tentar carregar a pagina, por favor, tente novamente." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLl-eA-bvh">
+                                        <rect key="frame" x="16" y="318" width="361" height="130"/>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRi-ao-C9i">
+                                        <rect key="frame" x="16" y="508" width="361" height="34"/>
+                                        <color key="tintColor" red="0.87058823529999996" green="0.51747204309999995" blue="0.81916940090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Tentar Novamente" titleAlignment="center">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="MiX-X6-DuS"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="MiX-X6-DuS" firstAttribute="bottom" secondItem="nRi-ao-C9i" secondAttribute="bottom" constant="276" id="E0B-Pq-l6f"/>
+                                    <constraint firstItem="MiX-X6-DuS" firstAttribute="bottom" secondItem="TWH-MT-UOs" secondAttribute="bottom" constant="530" id="KRn-wD-Ez3"/>
+                                    <constraint firstItem="MiX-X6-DuS" firstAttribute="bottom" secondItem="YLl-eA-bvh" secondAttribute="bottom" constant="370" id="Q6f-5e-dSF"/>
+                                    <constraint firstItem="nRi-ao-C9i" firstAttribute="top" secondItem="YLl-eA-bvh" secondAttribute="bottom" constant="60" id="QyT-Oz-3Jb"/>
+                                    <constraint firstItem="MiX-X6-DuS" firstAttribute="trailing" secondItem="TWH-MT-UOs" secondAttribute="trailing" constant="16" id="RZi-lL-PPI"/>
+                                    <constraint firstItem="YLl-eA-bvh" firstAttribute="top" secondItem="TWH-MT-UOs" secondAttribute="bottom" constant="30" id="TMV-ID-5mw"/>
+                                    <constraint firstItem="MiX-X6-DuS" firstAttribute="trailing" secondItem="YLl-eA-bvh" secondAttribute="trailing" constant="16" id="VzX-l9-eIF"/>
+                                    <constraint firstItem="MiX-X6-DuS" firstAttribute="trailing" secondItem="nRi-ao-C9i" secondAttribute="trailing" constant="16" id="c6c-Th-GFs"/>
+                                    <constraint firstItem="YLl-eA-bvh" firstAttribute="leading" secondItem="MiX-X6-DuS" secondAttribute="leading" constant="16" id="g22-ab-aXY"/>
+                                    <constraint firstItem="nRi-ao-C9i" firstAttribute="leading" secondItem="MiX-X6-DuS" secondAttribute="leading" constant="16" id="gYr-de-7cx"/>
+                                    <constraint firstItem="TWH-MT-UOs" firstAttribute="leading" secondItem="MiX-X6-DuS" secondAttribute="leading" constant="16" id="qN0-hV-VJB"/>
+                                    <constraint firstItem="TWH-MT-UOs" firstAttribute="top" secondItem="ov0-Qe-tsU" secondAttribute="top" constant="48" id="yHD-NT-2Tw"/>
+                                    <constraint firstItem="TWH-MT-UOs" firstAttribute="top" secondItem="ov0-Qe-tsU" secondAttribute="top" constant="48" id="zDJ-4y-rlF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LDo-Ii-s5z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -279,6 +325,7 @@
                     <navigationItem key="navigationItem" title="Movie Information" id="xjz-2I-dt6"/>
                     <connections>
                         <outlet property="atribbutedOverviewLabel" destination="zsM-5G-v50" id="8cA-UR-Wwl"/>
+                        <outlet property="errorView" destination="ov0-Qe-tsU" id="JFd-Kh-Jjm"/>
                         <outlet property="fifthStarIcon" destination="rMp-1D-4ge" id="aqK-rS-xaM"/>
                         <outlet property="firstStarIcon" destination="NKK-yb-ZcD" id="eml-g7-vS1"/>
                         <outlet property="fourthStarIcon" destination="nPa-0R-NyD" id="mtt-ny-kMo"/>
@@ -290,6 +337,7 @@
                         <outlet property="secondStarIcon" destination="yjG-3h-hWV" id="SgE-Y8-dPO"/>
                         <outlet property="thirdStarIcon" destination="AT9-if-4HZ" id="oKB-lN-zaL"/>
                         <outlet property="titleLabel" destination="ttN-nT-DKb" id="fIS-Wi-xnM"/>
+                        <outlet property="tryAgain" destination="nRi-ao-C9i" id="21L-9W-MFz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hp5-cu-Nxq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
