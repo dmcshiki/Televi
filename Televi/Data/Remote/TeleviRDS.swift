@@ -30,11 +30,11 @@ extension TeleviAPI: TargetType {
     }
     
     var method: Moya.Method {
-        return .get
+        .get
     }
     
     var task: Moya.Task {
-        return .requestPlain
+        .requestPlain
     }
     
     var headers: [String : String]? {
@@ -45,7 +45,7 @@ extension TeleviAPI: TargetType {
 class TeleviRDS {
     let provider = MoyaProvider<TeleviAPI>()
     
-    func getMovies() -> Single<[MovieRM]> {
+    func fetchMovies() -> Single<[MovieRM]> {
         return provider.rx.request(.readMovies).map { response in
             guard let movies = try? JSONDecoder().decode([MovieRM].self, from: response.data)
             else {
@@ -55,7 +55,7 @@ class TeleviRDS {
         }
     }
     
-    func getMovieInformation(movieId: Int) -> Single<MovieInformationRM> {
+    func fetchMovieInformation(movieId: Int) -> Single<MovieInformationRM> {
         return provider.rx.request(.readMovieInformation(id: movieId)).map { response in
             guard let movieInfo = try? JSONDecoder().decode(MovieInformationRM.self, from: response.data)
             else {

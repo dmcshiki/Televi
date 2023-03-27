@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MovieInformationView {
-    func getMovieInformation(movieInformation: MovieInformation)
+    func fetchMovieInformation(movieInformation: MovieInformation)
 }

@@ -11,16 +11,16 @@ import RxSwift
 struct TeleviRepository {
     let televiRDS: TeleviRDS
     
-    func getMovies() -> Single<[Movie]> {
-        return televiRDS.getMovies().map({
+    func fetchMovies() -> Single<[Movie]> {
+        return televiRDS.fetchMovies().map({
             $0.map({
                 $0.toDomainModel()
             })
         })
     }
     
-    func getMovieInformation(movieId: Int) -> Single<MovieInformation> {
-        return televiRDS.getMovieInformation(movieId: movieId).map({
+    func fetchMovieInformation(movieId: Int) -> Single<MovieInformation> {
+        return televiRDS.fetchMovieInformation(movieId: movieId).map({
             $0.toDomainModel()
         })
     }

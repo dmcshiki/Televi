@@ -22,12 +22,12 @@ struct MovieInformationPresenter: MovieInformationPresenterProtocol {
     let disposeBag = DisposeBag()
 
     func fetchMovieInformation(movieId: Int) {
-        self.view?.updateScreen(from: .loading)
-        return televiRepository.getMovieInformation(movieId: movieId).subscribe(
+        self.view?.updateScreen(to: .loading)
+        return televiRepository.fetchMovieInformation(movieId: movieId).subscribe(
             onSuccess: { movie in
-                self.view?.updateScreen(from: .error)
+                view?.updateScreen(to: .success(movie))
             }, onFailure: { _ in
-                self.view?.updateScreen(from: .error)
+                view?.updateScreen(to: .error)
             }
         ).disposed(by: disposeBag)
     }

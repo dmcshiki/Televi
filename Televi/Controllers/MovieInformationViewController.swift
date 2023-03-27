@@ -16,7 +16,7 @@ enum MovieInformationViewState {
 }
 
 protocol MovieInformationViewProtocol: AnyObject, Storyboarded {
-    func updateScreen(from state: MovieInformationViewState)
+    func updateScreen(to state: MovieInformationViewState)
 }
 
 class MovieInformationViewController: UIViewController, Storyboarded {
@@ -48,11 +48,9 @@ class MovieInformationViewController: UIViewController, Storyboarded {
             loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        tryAgain.rx.tap
-            .subscribe(onNext: {
+        tryAgain.rx.tap.subscribe(onNext: {
                 self.movieInformationPresenter.fetchMovieInformation(movieId: self.movieId!)
-            }) 
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,17 +134,17 @@ extension MovieInformationViewController {
 }
 
 extension MovieInformationViewController: MovieInformationViewProtocol {
-    func updateScreen(from state: MovieInformationViewState) {
+    func updateScreen(to state: MovieInformationViewState) {
         switch state {
         case let .success(movieInformation):
             self.movieInformation = movieInformation
-            self.errorView.isHidden = true
+            errorView.isHidden = true
             loadingView.isHidden = true
         case .loading:
             loadingView.isHidden = false
         case .error:
             loadingView.isHidden = true
-            self.errorView.isHidden = false
+            errorView.isHidden = false
         }
     }
 }

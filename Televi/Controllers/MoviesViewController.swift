@@ -15,7 +15,7 @@ enum MovieViewState {
 }
 
 protocol MoviesViewProtocol: AnyObject {
-    func updateScreen(from state: MovieViewState)
+    func updateScreen(to state: MovieViewState)
 }
 
 class MoviesViewController: UIViewController, Storyboarded {
@@ -47,11 +47,9 @@ class MoviesViewController: UIViewController, Storyboarded {
             loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        tryAgain.rx.tap
-            .subscribe(onNext: {
+        tryAgain.rx.tap.subscribe(onNext: {
                 self.moviesPresenter.fetchMovies()
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +83,7 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
 }
 
 extension MoviesViewController: MoviesViewProtocol {
-    func updateScreen(from state: MovieViewState) {
+    func updateScreen(to state: MovieViewState) {
         switch state {
         case let .success(movies):
             self.movies = movies
