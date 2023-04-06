@@ -6,10 +6,17 @@
 //
 
 import UIKit
-import Kingfisher
+import RxSwift
+
+
+enum MovieInformationViewState {
+    case success(MovieInformation)
+    case error
+    case loading
+}
 
 protocol MovieInformationViewProtocol: AnyObject, Storyboarded {
-    func displayMovieInformation(movieInformation: MovieInformation)
+    func updateScreen(to state: MovieInformationViewState)
 }
 
 class MovieInformationViewController: UIViewController, Storyboarded {
@@ -17,6 +24,9 @@ class MovieInformationViewController: UIViewController, Storyboarded {
     private var movieInformationPresenter: MovieInformationPresenter!
     private let loadingView = LoadingView()
     var coordinator: MainCoordinator?
+    let disposeBag = DisposeBag()
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var tryAgain: UIButton!
     
     private var movieInformation: MovieInformation? {
         didSet {
@@ -38,7 +48,9 @@ class MovieInformationViewController: UIViewController, Storyboarded {
             loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        loadingView.isHidden = false
+        tryAgain.rx.tap.subscribe(onNext: {
+                self.movieInformationPresenter.fetchMovieInformation(movieId: self.movieId!)
+            }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,8 +134,17 @@ extension MovieInformationViewController {
 }
 
 extension MovieInformationViewController: MovieInformationViewProtocol {
-    func displayMovieInformation(movieInformation: MovieInformation) {
-        self.movieInformation = movieInformation
-        loadingView.isHidden = true
+    func updateScreen(to state: MovieInformationViewState) {
+        switch state {
+        case let .success(movieInformation):
+            self.movieInformation = movieInformation
+            errorView.isHidden = true
+            loadingView.isHidden = true
+        case .loading:
+            loadingView.isHidden = false
+        case .error:
+            loadingView.isHidden = true
+            errorView.isHidden = false
+        }
     }
 }

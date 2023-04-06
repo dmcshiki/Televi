@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol MovieInformationPresenterProtocol {
     func fetchMovieInformation(movieId: Int)
@@ -18,15 +19,16 @@ struct MovieInformationPresenter: MovieInformationPresenterProtocol {
     
     var televiRepository = TeleviRepository(televiRDS: TeleviRDS())
     weak var view: MovieInformationViewProtocol?
+    let disposeBag = DisposeBag()
 
     func fetchMovieInformation(movieId: Int) {
-        televiRepository.getMovieInformation(movieId: movieId) { (result) in
-            switch result {
-            case .success(let movieInformationResponse):
-                self.view?.displayMovieInformation(movieInformation: movieInformationResponse)
-            case .failure(let error):
-                print(error)
+        self.view?.updateScreen(to: .loading)
+        return televiRepository.fetchMovieInformation(movieId: movieId).subscribe(
+            onSuccess: { movie in
+                view?.updateScreen(to: .success(movie))
+            }, onFailure: { _ in
+                view?.updateScreen(to: .error)
             }
-        }
+        ).disposed(by: disposeBag)
     }
 }

@@ -7,7 +7,8 @@
 
 import Foundation
 import Moya
-import Combine
+import RxSwift
+import RxCocoa
 
 enum TeleviAPI {
     case readMovies
@@ -29,12 +30,12 @@ extension TeleviAPI: TargetType {
     }
     
     var method: Moya.Method {
-        return .get
+        .get
     }
     
     var task: Moya.Task {
-            return .requestPlain
-        }
+        .requestPlain
+    }
     
     var headers: [String : String]? {
         return ["Content-Type": "application/json"]
@@ -42,38 +43,26 @@ extension TeleviAPI: TargetType {
 }
 
 class TeleviRDS {
-    let provider = MoyaProvider<TeleviAPI>();
+    let provider = MoyaProvider<TeleviAPI>()
     
-    func getMovies(completion: @escaping ([MovieRM]?, Error?) -> Void) {
-        provider.request(TeleviAPI.readMovies) { (result) in
-            switch result {
-                case .success(let response):
-                guard let moviesResponse = try? JSONDecoder().decode([MovieRM].self, from: response.data)
-                    else {
-                        completion(nil, NSError(domain: "TeleviRDS", code: 0, userInfo: [NSLocalizedDescriptionKey: "Error decoding movies response"]))
-                        return
-                    }
-                    completion(moviesResponse, nil)
-                case .failure(let error):
-                    completion(nil, error)
+    func fetchMovies() -> Single<[MovieRM]> {
+        return provider.rx.request(.readMovies).map { response in
+            guard let movies = try? JSONDecoder().decode([MovieRM].self, from: response.data)
+            else {
+                throw NSError()
             }
+            return movies
         }
     }
     
-    func getMovieInformation(movieId: Int, completion: @escaping (MovieInformationRM?, Error?) -> Void) {
-        provider.request(TeleviAPI.readMovieInformation(id: movieId)) { (result) in
-            switch result {
-                case .success(let response):
-                guard let movieInformationResponse = try? JSONDecoder().decode(MovieInformationRM.self, from: response.data)
-                    else {
-                        completion(nil, NSError(domain: "TeleviRDS", code: 0, userInfo: [NSLocalizedDescriptionKey: "Error decoding movies response"]))
-                        return
-                    }
-                    completion(movieInformationResponse, nil)
-                case .failure(let error):
-                    completion(nil, error)
+    func fetchMovieInformation(movieId: Int) -> Single<MovieInformationRM> {
+        return provider.rx.request(.readMovieInformation(id: movieId)).map { response in
+            guard let movieInfo = try? JSONDecoder().decode(MovieInformationRM.self, from: response.data)
+            else {
+                throw NSError()
             }
+            return movieInfo
         }
     }
 }
-    
+

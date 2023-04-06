@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+
+enum MovieViewState {
+    case success([Movie])
+    case error
+    case loading
+}
 
 protocol MoviesViewProtocol: AnyObject {
-    func displayMovies(movies: [Movie])
+    func updateScreen(to state: MovieViewState)
 }
 
 class MoviesViewController: UIViewController, Storyboarded {
@@ -16,8 +23,13 @@ class MoviesViewController: UIViewController, Storyboarded {
     private var moviesPresenter: MoviesPresenter!
     private let loadingView = LoadingView()
     var coordinator: MainCoordinator?
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var tryAgain: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +47,14 @@ class MoviesViewController: UIViewController, Storyboarded {
             loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        loadingView.isHidden = false
+        tryAgain.rx.tap.subscribe(onNext: {
+                self.moviesPresenter.fetchMovies()
+            }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        errorView.isHidden = true
         moviesPresenter.fetchMovies()
     }
 }
@@ -68,9 +83,19 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
 }
 
 extension MoviesViewController: MoviesViewProtocol {
-    func displayMovies(movies: [Movie]) {
-        self.movies = movies
-        self.collectionView.reloadData()
-        loadingView.isHidden = true
+    func updateScreen(to state: MovieViewState) {
+        switch state {
+        case let .success(movies):
+            self.movies = movies
+            self.collectionView.reloadData()
+            loadingView.isHidden = true
+            errorView.isHidden = true
+        case .loading:
+            loadingView.isHidden = false
+        case .error:
+            loadingView.isHidden = true
+            errorView.isHidden = false
+        }
     }
 }
+

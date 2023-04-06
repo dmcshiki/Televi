@@ -6,46 +6,22 @@
 //
 
 import Foundation
+import RxSwift
 
 struct TeleviRepository {
     let televiRDS: TeleviRDS
     
-    func getMovies(completion: @escaping ((Result<[Movie], Error>)) -> Void) {
-        televiRDS.getMovies(
-            completion: { (moviesResponse, error) in
-                if let error = error {
-                    completion((.failure(error)))
-                } else {
-                    guard let movies = moviesResponse.map ({
-                        $0.map({
-                            $0.toDomainModel()
-                        })
-                    }) else {
-                        completion(.failure(NSError(domain: "Failed mapping", code: 43)))
-                        return
-                    }
-                    completion(.success(movies))
-                }
-            }
-        )
+    func fetchMovies() -> Single<[Movie]> {
+        return televiRDS.fetchMovies().map({
+            $0.map({
+                $0.toDomainModel()
+            })
+        })
     }
     
-    func getMovieInformation(movieId: Int, completion: @escaping ((Result<MovieInformation, Error>)) -> Void) {
-        televiRDS.getMovieInformation(movieId: movieId,
-            completion: { (movieInformationResponse, error) in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    guard let movieInformation = movieInformationResponse.map({
-                            $0.toDomainModel()
-                        })
-                    else {
-                        completion(.failure(NSError(domain: "Failed mapping", code: 43)))
-                        return
-                    }
-                    completion(.success(movieInformation))
-                }
-            }
-        )
+    func fetchMovieInformation(movieId: Int) -> Single<MovieInformation> {
+        return televiRDS.fetchMovieInformation(movieId: movieId).map({
+            $0.toDomainModel()
+        })
     }
 }

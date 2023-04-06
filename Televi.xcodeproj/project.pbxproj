@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,6 @@
 		F936441029ABA28A0062C374 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936440F29ABA28A0062C374 /* MoviesPresenter.swift */; };
 		F936441229ABA29B0062C374 /* MovieInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */; };
 		F93BC596299FF5160079735C /* TeleviRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BC595299FF5160079735C /* TeleviRepository.swift */; };
-		F96B89FF299E9A2E00951CEA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F96B89FE299E9A2E00951CEA /* Kingfisher */; };
 		F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A00299E9F4C00951CEA /* MovieRM.swift */; };
 		F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */; };
 		F96B8A08299EA0D400951CEA /* RemoteToDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */; };
@@ -33,6 +32,19 @@
 		F9E4BC982996B8DD005C7B65 /* MovieInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E4BC972996B8DD005C7B65 /* MovieInformation.swift */; };
 		F9FC4C3A2994A26800B9FF4E /* FavoriteMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FC4C392994A26800B9FF4E /* FavoriteMoviesViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F9E5239629CB7DE900EF4046 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		520EB4D510EA411260D8AD19 /* Pods_Televi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Televi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +67,7 @@
 		F936440F29ABA28A0062C374 /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
 		F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationPresenter.swift; sourceTree = "<group>"; };
 		F93BC595299FF5160079735C /* TeleviRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleviRepository.swift; sourceTree = "<group>"; };
+		F953EB9529C3DDF0005ECA07 /* RxSwiftExplanation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RxSwiftExplanation.md; sourceTree = "<group>"; };
 		F96B8A00299E9F4C00951CEA /* MovieRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRM.swift; sourceTree = "<group>"; };
 		F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationRM.swift; sourceTree = "<group>"; };
 		F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteToDomain.swift; sourceTree = "<group>"; };
@@ -70,7 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F96B89FF299E9A2E00951CEA /* Kingfisher in Frameworks */,
 				8299AF6155ECFB3E2D59AD92 /* Pods_Televi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				F91130B3299493B900480E0F /* Info.plist */,
+				F953EB9529C3DDF0005ECA07 /* RxSwiftExplanation.md */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -276,6 +289,7 @@
 				F911309F299493B600480E0F /* Frameworks */,
 				F91130A0299493B600480E0F /* Resources */,
 				80598706EE794E0E6158B24D /* [CP] Embed Pods Frameworks */,
+				F9E5239629CB7DE900EF4046 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -283,7 +297,6 @@
 			);
 			name = Televi;
 			packageProductDependencies = (
-				F96B89FE299E9A2E00951CEA /* Kingfisher */,
 			);
 			productName = Televi;
 			productReference = F91130A2299493B600480E0F /* Televi.app */;
@@ -305,7 +318,7 @@
 				};
 			};
 			buildConfigurationList = F911309D299493B600480E0F /* Build configuration list for PBXProject "Televi" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -314,7 +327,6 @@
 			);
 			mainGroup = F9113099299493B600480E0F;
 			packageReferences = (
-				F96B89FD299E9A2E00951CEA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F91130A3299493B600480E0F /* Products */;
 			projectDirPath = "";
@@ -534,10 +546,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -558,6 +570,7 @@
 				INFOPLIST_FILE = "Televi/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -566,7 +579,6 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-McCarthy.Televi";
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -587,6 +599,7 @@
 				INFOPLIST_FILE = "Televi/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -624,25 +637,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F96B89FD299E9A2E00951CEA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher/";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F96B89FE299E9A2E00951CEA /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96B89FD299E9A2E00951CEA /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F911309A299493B600480E0F /* Project object */;
 }
