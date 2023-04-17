@@ -17,7 +17,7 @@ struct MovieInformationPresenter: MovieInformationPresenterProtocol {
         self.view = view
     }
     
-    var televiRepository = TeleviRepository(televiRDS: TeleviRDS())
+    var televiRepository = TeleviRepository(televiRDS: TeleviRDS(), televiCDS: TeleviCDS())
     weak var view: MovieInformationViewProtocol?
     let disposeBag = DisposeBag()
 

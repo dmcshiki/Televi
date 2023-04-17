@@ -47,10 +47,14 @@ class MovieInformationViewController: UIViewController, Storyboarded {
             loadingView.topAnchor.constraint(equalTo: view.topAnchor),
             loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
+
         tryAgain.rx.tap.subscribe(onNext: {
-                self.movieInformationPresenter.fetchMovieInformation(movieId: self.movieId!)
-            }).disposed(by: disposeBag)
+            self.movieInformationPresenter.fetchMovieInformation(movieId: self.movieId!)
+        }).disposed(by: disposeBag)
+        
+        favoriteButton.rx.tap.subscribe(onNext: {
+            self.movieInformationPresenter.toggleFavoriteOption()
+        }).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +78,7 @@ class MovieInformationViewController: UIViewController, Storyboarded {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var genresLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
 }
 
 extension MovieInformationViewController {
@@ -86,6 +91,9 @@ extension MovieInformationViewController {
         releaseDateLabel.text = movieInformation.release_date
         genresLabel.text = movieInformation.genres.joined(separator: ", ")
         makeOverviewText(overviewLabel: atribbutedOverviewLabel, movieInformation: movieInformation)
+        if(movieInformation.isFavorite) {
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
     }
     
     private func showImage(movieInformation: MovieInformation) {
@@ -141,6 +149,7 @@ extension MovieInformationViewController: MovieInformationViewProtocol {
             errorView.isHidden = true
             loadingView.isHidden = true
         case .loading:
+            errorView.isHidden = true
             loadingView.isHidden = false
         case .error:
             loadingView.isHidden = true

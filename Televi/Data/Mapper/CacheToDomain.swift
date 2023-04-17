@@ -1,34 +1,34 @@
 //
-//  RemoteToDomain.swift
+//  CacheToDomain.swift
 //  Televi
 //
-//  Created by Daniel McCarthy on 16/02/23.
+//  Created by Daniel McCarthy on 12/04/23.
 //
 
 import Foundation
 
-extension MovieRM {
+extension MovieCM {
     func toDM() -> Movie {
         return Movie(
             id: id,
             name: name,
-            image: imageURL
+            image: imageUrl
         )
     }
 }
 
-extension MovieInformationRM {
-    func toDM() -> MovieInformation {
+extension MovieInformationCM {
+    func toDM(isFavorite: Bool) -> MovieInformation {
         return MovieInformation(
             id: id,
             name: name,
-            imageURL: imageURL,
+            imageURL: imageUrl,
             isAdultContent: isAdultContent,
             genres: genres,
             overview: overview,
             release_date: release_date,
             score: score,
-            isFavorite: false
+            isFavorite: isFavorite
         )
     }
 }
