@@ -25,13 +25,20 @@ class ApplicationCoordinator {
 
         // Colocar as UINavigationControllers dentro da TabBarController
         let moviesNavigationController = UINavigationController()
-        moviesNavigationController.tabBarItem = UITabBarItem(title: ("movies"), image: nil, selectedImage: nil)
+        moviesNavigationController.tabBarItem = UITabBarItem(title: ("movies"), image: UIImage(systemName: "video.circle"), selectedImage: nil)
 
+        let favoriteMoviesNavigationController = UINavigationController()
+        moviesNavigationController.tabBarItem = UITabBarItem(title: ("favorites"), image: UIImage(systemName: "heart.fill"), selectedImage: nil)
+        
        // Instanciar o seu Coordinator (Provavelmente MovieCoordinator)
        // Adicionar MovieCoordinator na lista de filhos
         let firstCoordinator = MainCoordinator(navigationController: moviesNavigationController)
         firstCoordinator.start()
+        
+        let secondCoordinator = FavoriteCoordinator(navigationController: favoriteMoviesNavigationController)
+        
         children.append(firstCoordinator)
+        children.append(secondCoordinator)
 
         // Setar a NavController
         tabBarController.setViewControllers([moviesNavigationController], animated: false)

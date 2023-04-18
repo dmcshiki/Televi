@@ -17,4 +17,6 @@ protocol Coordinator {
     func pop()
     
     func stopChildren()
+    
+    func navigatoToMovieInformation(movieId: Int)
 }

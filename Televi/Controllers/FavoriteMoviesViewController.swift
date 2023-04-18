@@ -14,7 +14,7 @@ enum FavoriteMovieViewState {
     case loading
 }
 
-protocol FavoriteMoviesViewProtocol: AnyObject {
+protocol FavoriteMoviesViewProtocol: AnyObject, Storyboarded {
     func updateScreen(to state: FavoriteMovieViewState)
 }
 
@@ -23,7 +23,7 @@ class FavoriteMoviesViewController: UIViewController {
     private var movies: [Movie] = []
     private var favoriteMoviesPresenter: FavoriteMoviesPresenter!
     private let loadingView = LoadingView()
-    var coordinator: MainCoordinator?
+    var coordinator: Coordinator?
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -78,7 +78,6 @@ extension FavoriteMoviesViewController: UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id = movies[indexPath.row].id
         coordinator?.navigatoToMovieInformation(movieId: id)
-    
     }
 }
 

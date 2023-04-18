@@ -32,4 +32,10 @@ class FavoriteCoordinator: Coordinator {
         vc.movieId = movieId
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func pop() {
+        navigationController.popViewController(animated: true)
+    }
+    
+    func stopChildren() {}
 }

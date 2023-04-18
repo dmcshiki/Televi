@@ -21,7 +21,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = MoviesViewController.instantiate()
+        let vc = MoviesViewController()
         navigationController.pushViewController(vc, animated: false)
         vc.coordinator = self
     }
@@ -34,12 +34,8 @@ class MainCoordinator: Coordinator {
     }
     
     func pop() {
-        if() {
-            navigationController.popViewController(animated: true)
-        }
+        navigationController.popViewController(animated: true)
     }
     
-    func stopChildren() {
-        
-    }
+    func stopChildren() {}
 }

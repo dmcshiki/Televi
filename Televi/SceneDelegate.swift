@@ -17,12 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             self.coordinator = ApplicationCoordinator(window: window)
             self.coordinator.start()
+        
 //        if let windowScene = scene as? UIWindowScene {
 //            let navController = UINavigationController()
-//            coordinator = MainCoordinator(navigationController: navController)
+//            coordinator = ApplicationCoordinator(window: window)
 //            coordinator?.start()
-//
-//            let window = UIWindow(windowScene: windowScene)
+////            let window = UIWindow(windowScene: windowScene)
 //            window.rootViewController = navController
 //            self.window = window
 //            window.makeKeyAndVisible()

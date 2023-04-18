@@ -80,7 +80,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" id="6ZR-j4-nMU" userLabel="Error">
+                            <view hidden="YES" contentMode="scaleToFill" id="6ZR-j4-nMU" userLabel="Error">
                                 <rect key="frame" x="-6" y="-6" width="396" height="853"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
@@ -366,7 +366,7 @@
         <!--Favorite Movies View Controller-->
         <scene sceneID="BEy-wT-HUS">
             <objects>
-                <viewController id="WQO-j1-5Ku" customClass="FavoriteMoviesViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteMoviesViewController" id="WQO-j1-5Ku" customClass="FavoriteMoviesViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dfp-Ma-5xY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

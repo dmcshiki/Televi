@@ -23,7 +23,7 @@ class MovieInformationViewController: UIViewController, Storyboarded {
     var movieId: Int?
     private var movieInformationPresenter: MovieInformationPresenter!
     private let loadingView = LoadingView()
-    var coordinator: MainCoordinator?
+    var coordinator: Coordinator?
     let disposeBag = DisposeBag()
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var tryAgain: UIButton!

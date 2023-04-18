@@ -22,7 +22,7 @@ class MoviesViewController: UIViewController, Storyboarded {
     private var movies: [Movie] = []
     private var moviesPresenter: MoviesPresenter!
     private let loadingView = LoadingView()
-    var coordinator: MainCoordinator?
+    var coordinator: Coordinator?
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var collectionView: UICollectionView!
