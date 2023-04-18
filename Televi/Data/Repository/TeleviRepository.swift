@@ -48,7 +48,7 @@ struct TeleviRepository {
     func toggleFavoriteMovie(movieId: Int) -> Completable {
         return televiCDS.toggleFavorite(movieId: movieId)
     }
-    
+     
     func fetchFavoriteMovies() -> Single<[Movie]> {
         return Single.zip(
             televiCDS.getMovies(),

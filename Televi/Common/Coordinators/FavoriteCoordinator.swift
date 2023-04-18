@@ -1,14 +1,14 @@
 //
-//  MainCoordinator.swift
+//  FavoriteCoordinator.swift
 //  Televi
 //
-//  Created by Daniel McCarthy on 01/03/23.
+//  Created by Daniel McCarthy on 17/04/23.
 //
 
 import Foundation
 import UIKit
 
-class MainCoordinator: Coordinator {
+class FavoriteCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -21,7 +21,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = MoviesViewController.instantiate()
+        let vc = FavoriteMoviesViewController.instantiate()
         navigationController.pushViewController(vc, animated: false)
         vc.coordinator = self
     }
@@ -31,15 +31,5 @@ class MainCoordinator: Coordinator {
         vc.coordinator = self
         vc.movieId = movieId
         navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func pop() {
-        if() {
-            navigationController.popViewController(animated: true)
-        }
-    }
-    
-    func stopChildren() {
-        
     }
 }

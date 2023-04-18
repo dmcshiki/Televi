@@ -26,7 +26,6 @@ class MoviesViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var tryAgain: UIButton!
     

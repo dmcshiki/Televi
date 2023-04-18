@@ -53,7 +53,7 @@ class MovieInformationViewController: UIViewController, Storyboarded {
         }).disposed(by: disposeBag)
         
         favoriteButton.rx.tap.subscribe(onNext: {
-            self.movieInformationPresenter.toggleFavoriteOption()
+            self.toggleFavorite()
         }).disposed(by: disposeBag)
     }
     
@@ -154,6 +154,17 @@ extension MovieInformationViewController: MovieInformationViewProtocol {
         case .error:
             loadingView.isHidden = true
             errorView.isHidden = false
+        }
+    }
+    
+    func toggleFavorite() {
+        self.movieInformationPresenter.toggleFavorite(movieId: self.movieId!)
+        self.movieInformation!.isFavorite = !self.movieInformation!.isFavorite
+        
+        if(self.movieInformation!.isFavorite) {
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }
 }

@@ -16,5 +16,5 @@ struct MovieInformation {
     let overview: String
     let release_date: String
     let score: Double
-    let isFavorite: Bool
+    var isFavorite: Bool
 }

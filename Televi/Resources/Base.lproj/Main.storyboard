@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771.75572519083971" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="903" y="5"/>
         </scene>
         <!--Movie Information-->
         <scene sceneID="Utr-ob-Zw8">
@@ -382,7 +382,7 @@
                                     <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="MovieCell" id="D5Q-PF-SkA" customClass="MovieCollectionViewCell" customModule="Televi" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="FavoriteMovieCell" id="D5Q-PF-SkA" customClass="FavoriteMovieCollectionViewCell" customModule="Televi" customModuleProvider="target">
                                         <rect key="frame" x="16" y="0.0" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wT1-l0-Wnv">
@@ -420,11 +420,11 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="movieImageView" destination="2ip-Sh-jXg" id="N06-l9-mbR"/>
-                                            <outlet property="movieNameLabel" destination="KF6-X6-aTz" id="Git-Py-vaT"/>
+                                            <outlet property="favoriteImageView" destination="2ip-Sh-jXg" id="sVp-5H-be0"/>
+                                            <outlet property="favoriteMovieNameLabel" destination="KF6-X6-aTz" id="ZzJ-6d-wOh"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="movieCell" id="hxt-dn-w0z">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="favoriteMovieCell" id="hxt-dn-w0z">
                                         <rect key="frame" x="192" y="0.0" width="180" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FCF-3y-Xjf">
@@ -434,15 +434,65 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" id="N6H-M5-E5Z" userLabel="Error">
+                                <rect key="frame" x="-2" y="-1" width="396" height="853"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericException" translatesAutoresizingMaskIntoConstraints="NO" id="Mr6-Pi-dAl">
+                                        <rect key="frame" x="16" y="48" width="364" height="241"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontramos um erro ao tentar carregar a pagina, por favor, tente novamente." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLP-bo-JMW">
+                                        <rect key="frame" x="16" y="319" width="364" height="130"/>
+                                        <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNk-cM-cKC">
+                                        <rect key="frame" x="16" y="509" width="364" height="34"/>
+                                        <color key="tintColor" red="0.87058823529999996" green="0.51747204309999995" blue="0.81916940090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Tentar Novamente" titleAlignment="center">
+                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="wbe-CP-Mjn"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="BLP-bo-JMW" firstAttribute="leading" secondItem="wbe-CP-Mjn" secondAttribute="leading" constant="16" id="5dD-S4-di3"/>
+                                    <constraint firstItem="Mr6-Pi-dAl" firstAttribute="leading" secondItem="wbe-CP-Mjn" secondAttribute="leading" constant="16" id="HdY-s0-19X"/>
+                                    <constraint firstItem="BLP-bo-JMW" firstAttribute="top" secondItem="Mr6-Pi-dAl" secondAttribute="bottom" constant="30" id="O9i-zz-6r0"/>
+                                    <constraint firstItem="wbe-CP-Mjn" firstAttribute="bottom" secondItem="SNk-cM-cKC" secondAttribute="bottom" constant="276" id="Oo0-zw-018"/>
+                                    <constraint firstItem="wbe-CP-Mjn" firstAttribute="trailing" secondItem="Mr6-Pi-dAl" secondAttribute="trailing" constant="16" id="PtQ-HI-Tqp"/>
+                                    <constraint firstItem="wbe-CP-Mjn" firstAttribute="bottom" secondItem="BLP-bo-JMW" secondAttribute="bottom" constant="370" id="TEl-an-HYz"/>
+                                    <constraint firstItem="SNk-cM-cKC" firstAttribute="top" secondItem="BLP-bo-JMW" secondAttribute="bottom" constant="60" id="ZxM-mE-CYD"/>
+                                    <constraint firstItem="wbe-CP-Mjn" firstAttribute="trailing" secondItem="BLP-bo-JMW" secondAttribute="trailing" constant="16" id="alh-g0-vYO"/>
+                                    <constraint firstItem="wbe-CP-Mjn" firstAttribute="trailing" secondItem="SNk-cM-cKC" secondAttribute="trailing" constant="16" id="fbj-El-jjv"/>
+                                    <constraint firstItem="wbe-CP-Mjn" firstAttribute="bottom" secondItem="Mr6-Pi-dAl" secondAttribute="bottom" constant="530" id="mgR-bP-adg"/>
+                                    <constraint firstItem="Mr6-Pi-dAl" firstAttribute="top" secondItem="N6H-M5-E5Z" secondAttribute="top" constant="48" id="rah-6d-Wie"/>
+                                    <constraint firstItem="SNk-cM-cKC" firstAttribute="leading" secondItem="wbe-CP-Mjn" secondAttribute="leading" constant="16" id="rmS-mg-yMx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w0C-t9-uQm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="NCL-Qw-Mhe"/>
+                    <connections>
+                        <outlet property="collectionView" destination="MBU-PU-cMu" id="IWH-MT-dOe"/>
+                        <outlet property="errorView" destination="N6H-M5-E5Z" id="H9x-l9-mGJ"/>
+                        <outlet property="tryAgain" destination="SNk-cM-cKC" id="S59-mx-1QX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVa-Bg-tzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-208.3969465648855" y="4.9295774647887329"/>
+            <point key="canvasLocation" x="193" y="5"/>
         </scene>
     </scenes>
     <resources>
