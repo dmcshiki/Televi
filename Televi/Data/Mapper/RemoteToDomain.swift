@@ -8,7 +8,7 @@
 import Foundation
 
 extension MovieRM {
-    func toDomainModel() -> Movie {
+    func toDM() -> Movie {
         return Movie(
             id: id,
             name: name,
@@ -18,7 +18,7 @@ extension MovieRM {
 }
 
 extension MovieInformationRM {
-    func toDomainModel() -> MovieInformation {
+    func toDM() -> MovieInformation {
         return MovieInformation(
             id: id,
             name: name,
@@ -27,7 +27,8 @@ extension MovieInformationRM {
             genres: genres,
             overview: overview,
             release_date: release_date,
-            score: score
+            score: score,
+            isFavorite: false
         )
     }
 }

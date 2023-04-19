@@ -10,5 +10,6 @@ target 'Televi' do
 	pod 'Kingfisher', '~> 7.0'
 	pod 'RxSwift', '6.5.0'
     	pod 'RxCocoa', '6.5.0'
+	pod 'SwiftyUserDefaults', '~> 5.0'
 
 end

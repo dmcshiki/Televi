@@ -10,6 +10,7 @@ import RxSwift
 
 protocol MovieInformationPresenterProtocol {
     func fetchMovieInformation(movieId: Int)
+    func toggleFavorite(movieId: Int)
 }
 
 struct MovieInformationPresenter: MovieInformationPresenterProtocol {
@@ -17,7 +18,7 @@ struct MovieInformationPresenter: MovieInformationPresenterProtocol {
         self.view = view
     }
     
-    var televiRepository = TeleviRepository(televiRDS: TeleviRDS())
+    var televiRepository = TeleviRepository(televiRDS: TeleviRDS(), televiCDS: TeleviCDS())
     weak var view: MovieInformationViewProtocol?
     let disposeBag = DisposeBag()
 
@@ -31,4 +32,13 @@ struct MovieInformationPresenter: MovieInformationPresenterProtocol {
             }
         ).disposed(by: disposeBag)
     }
+    
+    func toggleFavorite(movieId: Int) {
+        return televiRepository.toggleFavoriteMovie(movieId: movieId).subscribe(
+            onError: { _ in
+                view?.updateScreen(to: .error)
+            }
+        ).disposed(by: disposeBag)
+    }
 }
+

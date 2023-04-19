@@ -20,9 +20,18 @@
 		F920BD5829AFCE1E0083764C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5729AFCE1E0083764C /* Coordinator.swift */; };
 		F920BD5A29AFCED50083764C /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5929AFCED50083764C /* Storyboarded.swift */; };
 		F920BD5C29AFD3390083764C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F920BD5B29AFD3390083764C /* MainCoordinator.swift */; };
+		F9215C1729E5922E00EF39BA /* TeleviCDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215C1629E5922E00EF39BA /* TeleviCDS.swift */; };
+		F9215C1A29E5924E00EF39BA /* MovieCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215C1929E5924E00EF39BA /* MovieCM.swift */; };
+		F9215C1C29E5925F00EF39BA /* MovieInformationCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215C1B29E5925F00EF39BA /* MovieInformationCM.swift */; };
+		F9215C2129E72C5100EF39BA /* RemoteToCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215C2029E72C5100EF39BA /* RemoteToCache.swift */; };
+		F9215C2329E72E1C00EF39BA /* CacheToDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9215C2229E72E1C00EF39BA /* CacheToDomain.swift */; };
 		F936441029ABA28A0062C374 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936440F29ABA28A0062C374 /* MoviesPresenter.swift */; };
 		F936441229ABA29B0062C374 /* MovieInformationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */; };
 		F93BC596299FF5160079735C /* TeleviRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93BC595299FF5160079735C /* TeleviRepository.swift */; };
+		F94AB2BD29EDB95600A40718 /* FavoriteMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AB2BC29EDB95600A40718 /* FavoriteMoviesPresenter.swift */; };
+		F94AB2BF29EDB9D000A40718 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AB2BE29EDB9D000A40718 /* FavoriteCollectionViewCell.swift */; };
+		F94AB2C129EDC16C00A40718 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AB2C029EDC16C00A40718 /* ApplicationCoordinator.swift */; };
+		F94AB2C329EDC3DC00A40718 /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AB2C229EDC3DC00A40718 /* FavoriteCoordinator.swift */; };
 		F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A00299E9F4C00951CEA /* MovieRM.swift */; };
 		F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */; };
 		F96B8A08299EA0D400951CEA /* RemoteToDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */; };
@@ -64,9 +73,18 @@
 		F920BD5729AFCE1E0083764C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F920BD5929AFCED50083764C /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		F920BD5B29AFD3390083764C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F9215C1629E5922E00EF39BA /* TeleviCDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleviCDS.swift; sourceTree = "<group>"; };
+		F9215C1929E5924E00EF39BA /* MovieCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCM.swift; sourceTree = "<group>"; };
+		F9215C1B29E5925F00EF39BA /* MovieInformationCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationCM.swift; sourceTree = "<group>"; };
+		F9215C2029E72C5100EF39BA /* RemoteToCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteToCache.swift; sourceTree = "<group>"; };
+		F9215C2229E72E1C00EF39BA /* CacheToDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheToDomain.swift; sourceTree = "<group>"; };
 		F936440F29ABA28A0062C374 /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
 		F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationPresenter.swift; sourceTree = "<group>"; };
 		F93BC595299FF5160079735C /* TeleviRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleviRepository.swift; sourceTree = "<group>"; };
+		F94AB2BC29EDB95600A40718 /* FavoriteMoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesPresenter.swift; sourceTree = "<group>"; };
+		F94AB2BE29EDB9D000A40718 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		F94AB2C029EDC16C00A40718 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		F94AB2C229EDC3DC00A40718 /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		F953EB9529C3DDF0005ECA07 /* RxSwiftExplanation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RxSwiftExplanation.md; sourceTree = "<group>"; };
 		F96B8A00299E9F4C00951CEA /* MovieRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRM.swift; sourceTree = "<group>"; };
 		F96B8A02299E9F7100951CEA /* MovieInformationRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInformationRM.swift; sourceTree = "<group>"; };
@@ -165,8 +183,28 @@
 				F920BD5729AFCE1E0083764C /* Coordinator.swift */,
 				F920BD5929AFCED50083764C /* Storyboarded.swift */,
 				F920BD5B29AFD3390083764C /* MainCoordinator.swift */,
+				F94AB2C229EDC3DC00A40718 /* FavoriteCoordinator.swift */,
+				F94AB2C029EDC16C00A40718 /* ApplicationCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		F9215C1529E5921600EF39BA /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				F9215C1829E5923600EF39BA /* Models */,
+				F9215C1629E5922E00EF39BA /* TeleviCDS.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		F9215C1829E5923600EF39BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F9215C1929E5924E00EF39BA /* MovieCM.swift */,
+				F9215C1B29E5925F00EF39BA /* MovieInformationCM.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F936440D29ABA2400062C374 /* Presenters */ = {
@@ -174,6 +212,7 @@
 			children = (
 				F936440F29ABA28A0062C374 /* MoviesPresenter.swift */,
 				F936441129ABA29B0062C374 /* MovieInformationPresenter.swift */,
+				F94AB2BC29EDB95600A40718 /* FavoriteMoviesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -190,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				F93BC594299FEA210079735C /* Repository */,
+				F9215C1529E5921600EF39BA /* Cache */,
 				F96B8A06299E9FC400951CEA /* Mapper */,
 				F96B8A05299E9FA300951CEA /* Remote */,
 			);
@@ -209,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				F96B8A07299EA0D400951CEA /* RemoteToDomain.swift */,
+				F9215C2029E72C5100EF39BA /* RemoteToCache.swift */,
+				F9215C2229E72E1C00EF39BA /* CacheToDomain.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -244,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				F9E4BC952996A4F4005C7B65 /* MovieCollectionViewCell.swift */,
+				F94AB2BE29EDB9D000A40718 /* FavoriteCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -398,15 +441,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91130BA299496CF00480E0F /* MovieInformationViewController.swift in Sources */,
+				F9215C2129E72C5100EF39BA /* RemoteToCache.swift in Sources */,
 				F936441229ABA29B0062C374 /* MovieInformationPresenter.swift in Sources */,
 				F93BC596299FF5160079735C /* TeleviRepository.swift in Sources */,
+				F94AB2BF29EDB9D000A40718 /* FavoriteCollectionViewCell.swift in Sources */,
 				F91130AA299493B600480E0F /* MoviesViewController.swift in Sources */,
 				F96B8A01299E9F4C00951CEA /* MovieRM.swift in Sources */,
 				F9C15B722995E295003E4CD9 /* Movie.swift in Sources */,
+				F94AB2BD29EDB95600A40718 /* FavoriteMoviesPresenter.swift in Sources */,
+				F9215C2329E72E1C00EF39BA /* CacheToDomain.swift in Sources */,
 				F920BD5129AE5B620083764C /* MovieInformationView.swift in Sources */,
 				F96B8A0F299EA18500951CEA /* TeleviRDS.swift in Sources */,
 				F920BD5829AFCE1E0083764C /* Coordinator.swift in Sources */,
 				F9FC4C3A2994A26800B9FF4E /* FavoriteMoviesViewController.swift in Sources */,
+				F9215C1A29E5924E00EF39BA /* MovieCM.swift in Sources */,
 				F936441029ABA28A0062C374 /* MoviesPresenter.swift in Sources */,
 				F9E4BC962996A4F4005C7B65 /* MovieCollectionViewCell.swift in Sources */,
 				F91130A6299493B600480E0F /* AppDelegate.swift in Sources */,
@@ -415,8 +463,12 @@
 				F96B8A08299EA0D400951CEA /* RemoteToDomain.swift in Sources */,
 				F96B8A03299E9F7100951CEA /* MovieInformationRM.swift in Sources */,
 				F9E4BC982996B8DD005C7B65 /* MovieInformation.swift in Sources */,
+				F9215C1729E5922E00EF39BA /* TeleviCDS.swift in Sources */,
 				F920BD5A29AFCED50083764C /* Storyboarded.swift in Sources */,
+				F9215C1C29E5925F00EF39BA /* MovieInformationCM.swift in Sources */,
+				F94AB2C329EDC3DC00A40718 /* FavoriteCoordinator.swift in Sources */,
 				F920BD5529AE5D2A0083764C /* LoadingView.swift in Sources */,
+				F94AB2C129EDC16C00A40718 /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,10 +621,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Televi/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,10 +651,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Televi/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
