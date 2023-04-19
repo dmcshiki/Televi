@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -363,10 +363,10 @@
             </objects>
             <point key="canvasLocation" x="1652.6717557251907" y="4.9295774647887329"/>
         </scene>
-        <!--Favorite Movies View Controller-->
+        <!--Your Favorites-->
         <scene sceneID="BEy-wT-HUS">
             <objects>
-                <viewController storyboardIdentifier="FavoriteMoviesViewController" id="WQO-j1-5Ku" customClass="FavoriteMoviesViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteMoviesViewController" title="Your Favorites" id="WQO-j1-5Ku" customClass="FavoriteMoviesViewController" customModule="Televi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dfp-Ma-5xY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
