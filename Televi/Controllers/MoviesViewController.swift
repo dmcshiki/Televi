@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Swinject
 
 enum MovieViewState {
     case success([Movie])
@@ -24,15 +25,15 @@ class MoviesViewController: UIViewController, Storyboarded {
     private let loadingView = LoadingView()
     var coordinator: Coordinator?
     let disposeBag = DisposeBag()
+    let container: Container = buildApplicationContainer()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var tryAgain: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        moviesPresenter = MoviesPresenter(view: self)
+        moviesPresenter = container.resolve(MoviesPresenter.self, arguments: self.view, TeleviRepository.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")

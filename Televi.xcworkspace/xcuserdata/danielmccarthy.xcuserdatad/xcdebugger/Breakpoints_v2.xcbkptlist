@@ -3,4 +3,54 @@
    uuid = "EFB62A8E-0B7E-4525-91E1-EFC237781C60"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E33C672A-1AB2-4FCC-8FB2-7990E2840FA2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Televi/Controllers/MoviesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E33C672A-1AB2-4FCC-8FB2-7990E2840FA2 - dbee62d64520792"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Televi.MoviesViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Televi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielmccarthy/Documents/GitHub/Televi/Televi/Controllers/MoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "E33C672A-1AB2-4FCC-8FB2-7990E2840FA2 - dbee62d645207b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Televi.MoviesViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Televi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielmccarthy/Documents/GitHub/Televi/Televi/Controllers/MoviesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

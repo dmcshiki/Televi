@@ -31,11 +31,13 @@ class ApplicationCoordinator {
 
         let favoriteMoviesNavigationController = UINavigationController()
         favoriteMoviesNavigationController.tabBarItem = UITabBarItem(title: ("favorites"), image: UIImage(systemName: "heart.fill"), selectedImage: nil)
-
+        
         let firstCoordinator = container.resolve(MainCoordinator.self, argument: moviesNavigationController)!
+//        let firstCoordinator = MainCoordinator(navigationController: moviesNavigationController)
         firstCoordinator.start()
         
-        let secondCoordinator = container.resolve(FavoriteCoordinator.self, argument: favoriteMoviesNavigationController)!
+        let secondCoordinator = FavoriteCoordinator(navigationController: favoriteMoviesNavigationController)
+        let firstCoordinator = container.resolve(MainCoordinator.self, argument: moviesNavigationController)!
         secondCoordinator.start()
         
         children.append(firstCoordinator)

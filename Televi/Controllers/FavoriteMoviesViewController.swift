@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Swinject
 
 enum FavoriteMovieViewState {
     case success([Movie])
@@ -25,6 +26,7 @@ class FavoriteMoviesViewController: UIViewController {
     private let loadingView = LoadingView()
     var coordinator: Coordinator?
     let disposeBag = DisposeBag()
+    let container: Container = buildApplicationContainer()
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var errorView: UIView!
@@ -32,7 +34,7 @@ class FavoriteMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        favoriteMoviesPresenter = FavoriteMoviesPresenter(view: self)
+        favoriteMoviesPresenter = container.resolve(FavoriteMoviesPresenter.self, arguments: self.view, TeleviRepository.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FavoriteMovieCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")

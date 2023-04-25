@@ -7,8 +7,6 @@
 
 import Foundation
 import UIKit
-import SwinjectAutoregistration
-import Swinject
 
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
@@ -23,6 +21,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
+        //resolve
         let vc = MoviesViewController.instantiate()
         navigationController.pushViewController(vc, animated: false)
         vc.coordinator = self

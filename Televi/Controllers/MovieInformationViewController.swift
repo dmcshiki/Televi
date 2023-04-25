@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Swinject
 
 
 enum MovieInformationViewState {
@@ -27,6 +28,7 @@ class MovieInformationViewController: UIViewController, Storyboarded {
     let disposeBag = DisposeBag()
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var tryAgain: UIButton!
+    let container: Container = buildApplicationContainer()
     
     private var movieInformation: MovieInformation? {
         didSet {
@@ -37,8 +39,7 @@ class MovieInformationViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieInformationPresenter = MovieInformationPresenter(view: self)
-        
+        movieInformationPresenter = container.resolve(MovieInformationPresenter.self, arguments: self.view, TeleviRepository.self)
         view.addSubview(loadingView)
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

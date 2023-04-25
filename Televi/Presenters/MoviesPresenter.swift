@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import Swinject
 
 protocol MoviesPresenterProtocol {
     func fetchMovies()
