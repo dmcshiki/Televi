@@ -13,11 +13,12 @@ protocol FavoriteMoviesPresenterProtocol {
 }
 
 struct FavoriteMoviesPresenter: FavoriteMoviesPresenterProtocol {
-    init(view: FavoriteMoviesViewProtocol) {
+    init(view: FavoriteMoviesViewProtocol, televiRepository: TeleviRepository) {
         self.view = view
+        self.televiRepository = televiRepository
     }
 
-    var televiRepository = TeleviRepository(televiRDS: TeleviRDS(), televiCDS: TeleviCDS())
+    var televiRepository: TeleviRepository
     weak var view: FavoriteMoviesViewProtocol?
     let disposeBag = DisposeBag()
     

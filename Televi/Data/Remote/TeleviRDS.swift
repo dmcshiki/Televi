@@ -43,7 +43,11 @@ extension TeleviAPI: TargetType {
 }
 
 class TeleviRDS {
-    let provider = MoyaProvider<TeleviAPI>()
+    init(provider: MoyaProvider<TeleviAPI>) {
+        self.provider = provider
+    }
+    
+    let provider: MoyaProvider<TeleviAPI>
     
     func fetchMovies() -> Single<[MovieRM]> {
         return provider.rx.request(.readMovies).map { response in

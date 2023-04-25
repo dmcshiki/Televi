@@ -11,5 +11,7 @@ target 'Televi' do
 	pod 'RxSwift', '6.5.0'
     	pod 'RxCocoa', '6.5.0'
 	pod 'SwiftyUserDefaults', '~> 5.0'
+	pod 'Swinject'
+	pod 'SwinjectAutoregistration', '2.8.3'
 
 end

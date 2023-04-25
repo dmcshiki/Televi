@@ -9,6 +9,11 @@ import Foundation
 import RxSwift
 
 struct TeleviRepository {
+    init(televiRDS: TeleviRDS, televiCDS: TeleviCDS) {
+        self.televiRDS = televiRDS
+        self.televiCDS = televiCDS
+    }
+    
     let televiRDS: TeleviRDS
     let televiCDS: TeleviCDS
     

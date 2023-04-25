@@ -1,19 +1,21 @@
 //
 //  ApplicationCoordinator.swift
-//  Televi
+//  m,
 //
 //  Created by Daniel McCarthy on 17/04/23.
 //
 
 import Foundation
 import UIKit
+import Swinject
+import SwinjectAutoregistration
 
 class ApplicationCoordinator {
     var children: [Coordinator] = []
     let window: UIWindow
 
     // Deixa anotado para não esquecer quando for mexer com Swinject:
-    // let container: Container = buildApplicationContainer()
+     let container: Container = buildApplicationContainer()
     
     init(window: UIWindow) {
         self.window = window
@@ -29,13 +31,11 @@ class ApplicationCoordinator {
 
         let favoriteMoviesNavigationController = UINavigationController()
         favoriteMoviesNavigationController.tabBarItem = UITabBarItem(title: ("favorites"), image: UIImage(systemName: "heart.fill"), selectedImage: nil)
-        
-       // Instanciar o seu Coordinator (Provavelmente MovieCoordinator)
-       // Adicionar MovieCoordinator na lista de filhos
-        let firstCoordinator = MainCoordinator(navigationController: moviesNavigationController)
+
+        let firstCoordinator = container.resolve(MainCoordinator.self, argument: moviesNavigationController)!
         firstCoordinator.start()
         
-        let secondCoordinator = FavoriteCoordinator(navigationController: favoriteMoviesNavigationController)
+        let secondCoordinator = container.resolve(FavoriteCoordinator.self, argument: favoriteMoviesNavigationController)!
         secondCoordinator.start()
         
         children.append(firstCoordinator)

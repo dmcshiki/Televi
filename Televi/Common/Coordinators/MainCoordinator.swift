@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import SwinjectAutoregistration
+import Swinject
 
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
