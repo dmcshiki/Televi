@@ -9,6 +9,16 @@ import Foundation
 import SwiftyUserDefaults
 import RxSwift
 
+protocol TeleviCDSProtocol {
+    func upsertMovies(movies: [MovieCM]) -> Completable
+    func getMovies() -> Single<[MovieCM]>
+    func upsertMovieInformation(movieInformation: MovieInformationCM) -> Completable
+    func getMovieInformation(movieId: Int) throws -> Single<MovieInformationCM>
+    func toggleFavorite(movieId: Int) -> Completable
+    func getFavoriteMovies() -> Single<[Int]>
+    func isMovieFavorite(movieId: Int) -> Single<Bool>
+}
+
 struct Constants {
     static let moviesKey = DefaultsKey<[MovieCM]>("movies", defaultValue: [])
     static let movieInformationKey = DefaultsKey<[MovieInformationCM]>("movieInformation", defaultValue: [])

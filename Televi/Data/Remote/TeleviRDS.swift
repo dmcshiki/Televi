@@ -10,6 +10,11 @@ import Moya
 import RxSwift
 import RxCocoa
 
+protocol TeleviRDSProtocol {
+    func fetchMovies() -> Single<[MovieRM]>
+    func fetchMovieInformation(movieId: Int) -> Single<MovieInformationRM>
+}
+
 enum TeleviAPI {
     case readMovies
     case readMovieInformation(id: Int)

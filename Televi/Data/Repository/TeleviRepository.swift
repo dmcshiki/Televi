@@ -8,6 +8,14 @@
 import Foundation
 import RxSwift
 
+protocol TeleviRepositoryProtocol {
+    func fetchMovies() -> Single<[Movie]>
+    func fetchMovieInformation(movieId: Int) -> Single<MovieInformation>
+    func toggleFavoriteMovie(movieId: Int) -> Completable
+    func fetchFavoriteMovies() -> Single<[Movie]>
+}
+
+
 struct TeleviRepository {
     init(televiRDS: TeleviRDS, televiCDS: TeleviCDS) {
         self.televiRDS = televiRDS
