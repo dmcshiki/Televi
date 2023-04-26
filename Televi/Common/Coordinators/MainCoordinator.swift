@@ -7,10 +7,12 @@
 
 import Foundation
 import UIKit
+import Swinject
 
 class MainCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    let container: Container = buildApplicationContainer()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,14 +23,13 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        //resolve
-        let vc = MoviesViewController.instantiate()
+        let vc = container.resolve(MoviesViewController.self)!
         navigationController.pushViewController(vc, animated: false)
         vc.coordinator = self
     }
     
     func navigatoToMovieInformation(movieId: Int) {
-        let vc = MovieInformationViewController.instantiate()
+        let vc = container.resolve(MovieInformationViewController.self)!
         vc.coordinator = self
         vc.movieId = movieId
         navigationController.pushViewController(vc, animated: true)

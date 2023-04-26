@@ -20,7 +20,6 @@ protocol FavoriteMoviesViewProtocol: AnyObject, Storyboarded {
 }
 
 class FavoriteMoviesViewController: UIViewController {
-
     private var movies: [Movie] = []
     private var favoriteMoviesPresenter: FavoriteMoviesPresenter!
     private let loadingView = LoadingView()
@@ -34,7 +33,7 @@ class FavoriteMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        favoriteMoviesPresenter = container.resolve(FavoriteMoviesPresenter.self, arguments: self.view, TeleviRepository.self)
+        favoriteMoviesPresenter = container.resolve(FavoriteMoviesPresenter.self)!
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FavoriteMovieCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")

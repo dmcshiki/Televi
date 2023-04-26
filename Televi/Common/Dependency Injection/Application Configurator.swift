@@ -18,14 +18,19 @@ func buildApplicationContainer() -> Container {
     container.setupCDS()
     container.setupRDS()
     container.setupRepository()
+    container.setupViewControl()
+    container.setupViewProtocol()
+    container.setupCoordinator()
     container.setupPresenters()
-
+    
     return container
 }
 
 extension Container {
     func setupProvider() {
-        autoregister(MoyaProvider<TeleviAPI>.self, initializer: MoyaProvider<TeleviAPI>.init).inObjectScope(.container)
+        register(MoyaProvider<TeleviAPI>.self) { _ in
+            MoyaProvider<TeleviAPI>.init()
+        }.inObjectScope(.container)
     }
     
     func setupRDS() {
@@ -35,7 +40,9 @@ extension Container {
     }
     
     func setupCDS() {
-        autoregister(TeleviCDS.self, initializer: TeleviCDS.init).inObjectScope(.container)
+        register(TeleviCDS.self) { _ in
+            TeleviCDS.init()
+        }.inObjectScope(.container)
     }
     
     func setupRepository() {
@@ -44,23 +51,49 @@ extension Container {
         }.inObjectScope(.container)
     }
     
-    //nao da pra criar init da view protocol
+    func setupViewControl() {
+        register(MoviesViewController.self) { _ in
+            MoviesViewController.instantiate()
+        }.inObjectScope(.container)
+        
+        register(MovieInformationViewController.self) { _ in
+            MovieInformationViewController.instantiate()
+        }.inObjectScope(.container)
+        
+        register(FavoriteMoviesViewController.self) { _ in
+            FavoriteMoviesViewController.instantiate()
+        }.inObjectScope(.container)
+    }
+    
     func setupViewProtocol() {
         register(MoviesViewProtocol.self) { _ in
             MoviesViewController.instantiate()
         }.inObjectScope(.container)
+        
+        register(MovieInformationViewProtocol.self) { _ in
+            MovieInformationViewController.instantiate()
+        }.inObjectScope(.container)
+        
+        register(FavoriteMoviesViewProtocol.self) { _ in
+            FavoriteMoviesViewController.instantiate()
+        }.inObjectScope(.container)
     }
     
     func setupCoordinator() {
-        register(MainCoordinator.self) { _, argument in
-            MainCoordinator(navigationController: argument)
+        register(MainCoordinator.self) { _, navController in
+            MainCoordinator(navigationController: navController)
+        }.inObjectScope(.container)
+        
+        register(FavoriteCoordinator.self) { _, navController in
+            FavoriteCoordinator(navigationController: navController)
         }.inObjectScope(.container)
     }
     
     func setupPresenters() {
         register(MoviesPresenter.self) { _ in
-            //nao da pra usar resolve no viewprotocol
-            MoviesPresenter(view: self.resolve(MoviesViewProtocol.self)!, televiRepository: self.resolve(TeleviRepository.self)!)
+            MoviesPresenter(televiRepository: self.resolve(TeleviRepository.self)!)
+        }.initCompleted { resolver, presenter in
+            presenter.view = resolver.resolve(MoviesViewProtocol.self)
         }.inObjectScope(.container)
         
         register(MovieInformationPresenter.self) { _ in

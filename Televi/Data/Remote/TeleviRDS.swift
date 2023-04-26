@@ -46,7 +46,6 @@ class TeleviRDS {
     init(provider: MoyaProvider<TeleviAPI>) {
         self.provider = provider
     }
-    
     let provider: MoyaProvider<TeleviAPI>
     
     func fetchMovies() -> Single<[MovieRM]> {

@@ -13,6 +13,7 @@ import Swinject
 class FavoriteCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    let container: Container = buildApplicationContainer()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -23,13 +24,13 @@ class FavoriteCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = FavoriteMoviesViewController.instantiate()
+        let vc = container.resolve(FavoriteMoviesViewController.self)!
         navigationController.pushViewController(vc, animated: false)
         vc.coordinator = self
     }
     
     func navigatoToMovieInformation(movieId: Int) {
-        let vc = MovieInformationViewController.instantiate()
+        let vc = container.resolve(MovieInformationViewController.self)!
         vc.coordinator = self
         vc.movieId = movieId
         navigationController.pushViewController(vc, animated: true)

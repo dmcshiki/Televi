@@ -33,7 +33,7 @@ class MoviesViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        moviesPresenter = container.resolve(MoviesPresenter.self, arguments: self.view, TeleviRepository.self)
+        moviesPresenter = container.resolve(MoviesPresenter.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
@@ -65,7 +65,6 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as? MovieCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -78,7 +77,6 @@ extension MoviesViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id = movies[indexPath.row].id
         coordinator?.navigatoToMovieInformation(movieId: id)
-    
     }   
 }
 

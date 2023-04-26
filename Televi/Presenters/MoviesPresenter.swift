@@ -13,23 +13,22 @@ protocol MoviesPresenterProtocol {
     func fetchMovies()
 }
 
-struct MoviesPresenter: MoviesPresenterProtocol {
-    init(view: MoviesViewProtocol, televiRepository: TeleviRepository) {
-        self.view = view
+class MoviesPresenter: MoviesPresenterProtocol {
+    init(televiRepository: TeleviRepository) {
         self.televiRepository = televiRepository
     }
     
-    var televiRepository: TeleviRepository
+    private let televiRepository: TeleviRepository
     weak var view: MoviesViewProtocol?
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     func fetchMovies() {
         self.view?.updateScreen(to: .loading)
         return televiRepository.fetchMovies().subscribe(
             onSuccess: { movies in
-                view?.updateScreen(to: .success(movies))
+                self.view?.updateScreen(to: .success(movies))
             }, onFailure: { _ in
-                view?.updateScreen(to: .error)
+                self.view?.updateScreen(to: .error)
             }
         ).disposed(by: disposeBag)
     }
