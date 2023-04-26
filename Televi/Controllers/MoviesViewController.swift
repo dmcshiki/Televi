@@ -33,7 +33,7 @@ class MoviesViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        moviesPresenter = container.resolve(MoviesPresenter.self)
+        moviesPresenter = container.resolve(MoviesPresenter.self, argument: self)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")

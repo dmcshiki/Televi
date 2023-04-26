@@ -14,8 +14,9 @@ protocol MoviesPresenterProtocol {
 }
 
 class MoviesPresenter: MoviesPresenterProtocol {
-    init(televiRepository: TeleviRepository) {
+    init(televiRepository: TeleviRepository, view: MoviesViewProtocol) {
         self.televiRepository = televiRepository
+        self.view = view
     }
     
     private let televiRepository: TeleviRepository

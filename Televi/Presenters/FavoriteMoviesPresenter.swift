@@ -14,8 +14,8 @@ protocol FavoriteMoviesPresenterProtocol {
 
 struct FavoriteMoviesPresenter: FavoriteMoviesPresenterProtocol {
     init(view: FavoriteMoviesViewProtocol, televiRepository: TeleviRepository) {
-        self.view = view
         self.televiRepository = televiRepository
+        self.view = view
     }
 
     var televiRepository: TeleviRepository

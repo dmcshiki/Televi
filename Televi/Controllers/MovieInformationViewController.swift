@@ -39,7 +39,7 @@ class MovieInformationViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieInformationPresenter = container.resolve(MovieInformationPresenter.self)!
+        movieInformationPresenter = container.resolve(MovieInformationPresenter.self, argument: self)!
         view.addSubview(loadingView)
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

@@ -90,18 +90,16 @@ extension Container {
     }
     
     func setupPresenters() {
-        register(MoviesPresenter.self) { _ in
-            MoviesPresenter(televiRepository: self.resolve(TeleviRepository.self)!)
-        }.initCompleted { resolver, presenter in
-            presenter.view = resolver.resolve(MoviesViewProtocol.self)
+        register(MoviesPresenter.self) { (_, view: MoviesViewController) in
+            MoviesPresenter(televiRepository: self.resolve(TeleviRepository.self)!, view: view)
         }.inObjectScope(.container)
         
-        register(MovieInformationPresenter.self) { _ in
-            MovieInformationPresenter(view: self.resolve(MovieInformationViewProtocol.self)!, televiRepository: self.resolve(TeleviRepository.self)!)
+        register(MovieInformationPresenter.self) { (_, view: MovieInformationViewController) in
+            MovieInformationPresenter(view: view, televiRepository: self.resolve(TeleviRepository.self)!)
         }.inObjectScope(.container)
         
-        register(FavoriteMoviesPresenter.self) { _ in
-            FavoriteMoviesPresenter(view:self.resolve(FavoriteMoviesViewProtocol.self)!, televiRepository: self.resolve(TeleviRepository.self)!)
+        register(FavoriteMoviesPresenter.self) { (_, view: FavoriteMoviesViewController) in
+            FavoriteMoviesPresenter(view: view, televiRepository: self.resolve(TeleviRepository.self)!)
         }.inObjectScope(.container)
     }
 }

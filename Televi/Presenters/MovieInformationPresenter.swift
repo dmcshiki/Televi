@@ -15,8 +15,8 @@ protocol MovieInformationPresenterProtocol {
 
 struct MovieInformationPresenter: MovieInformationPresenterProtocol {
     init(view: MovieInformationViewProtocol, televiRepository: TeleviRepository) {
-        self.view = view
         self.televiRepository = televiRepository
+        self.view = view
     }
     
     var televiRepository: TeleviRepository

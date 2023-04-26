@@ -33,7 +33,7 @@ class FavoriteMoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        favoriteMoviesPresenter = container.resolve(FavoriteMoviesPresenter.self)!
+        favoriteMoviesPresenter = container.resolve(FavoriteMoviesPresenter.self, argument: self)!
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(FavoriteMovieCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
